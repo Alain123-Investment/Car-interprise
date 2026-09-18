@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>BTG Pactual</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+:root{--bg:#f5f7fb;--card:#fff;--ink:#172033;--muted:#697386;--blue:#173f8a;--blue2:#2458b8;--green:#087f5b;--line:#e7ebf2;--danger:#c0392b;--gold:#b88314}
+body{background:var(--bg);color:var(--ink);min-height:100vh;overflow-x:hidden}
+button,input,select{font:inherit}.hidden{display:none!important}.page{display:none}.page.active{display:block}
+.auth{min-height:100vh;padding:28px 20px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#102b63,#173f8a 52%,#f5f7fb 52%)}
+.authbox{width:100%;max-width:430px;background:#fff;border-radius:24px;padding:24px;box-shadow:0 18px 55px #0d214c33}
+.brand{text-align:center;margin-bottom:20px}.brandmark{width:56px;height:56px;border-radius:16px;margin:auto;background:linear-gradient(145deg,#173f8a,#2d65c5);color:#fff;display:grid;place-items:center;font-weight:900;font-size:24px}
+.brand h1{margin-top:10px;font-size:24px}.brand p{color:var(--muted);font-size:13px;margin-top:5px}
+.tabs{display:flex;background:#eef2f8;padding:4px;border-radius:12px;margin-bottom:18px}.tab{flex:1;padding:11px;text-align:center;border-radius:9px;color:var(--muted);font-weight:700;cursor:pointer}.tab.active{background:#fff;color:var(--blue);box-shadow:0 2px 8px #102b6318}
+.group{margin-bottom:13px}.group label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:600}
+.input{width:100%;border:1px solid #dfe4ec;background:#fbfcfe;padding:13px 12px;border-radius:12px;outline:none;color:var(--ink)}
+.input:focus{border-color:#5c83c8}.primary{width:100%;border:0;padding:14px;border-radius:13px;background:linear-gradient(90deg,var(--blue),var(--blue2));color:#fff;font-weight:800;cursor:pointer}.err{text-align:center;color:var(--danger);font-size:12px;min-height:17px;margin-top:8px}
+.phonewrap{display:flex;gap:7px}.country{width:42%;min-width:125px;position:relative}.country select{width:100%;border:1px solid #dfe4ec;background:#fbfcfe;padding:13px 8px;border-radius:12px;outline:none;color:var(--ink)}.phoneinput{flex:1}
+.app{min-height:100vh;padding-bottom:78px}.top{background:linear-gradient(135deg,#102b63,#1d4e9b);color:#fff;padding:17px 17px 20px;border-radius:0 0 24px 24px}
+.toprow{display:flex;align-items:center;justify-content:space-between}.top h2{font-size:18px}.avatar{width:38px;height:38px;border-radius:50%;background:#ffffff25;display:grid;place-items:center;font-weight:800}
+.container{padding:14px 15px}.hero{background:linear-gradient(135deg,#173f8a,#2d65c5);color:#fff;border-radius:20px;padding:18px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-70px;top:-90px;background:#ffffff14}
+.small{font-size:12px;opacity:.82}.balance{font-size:31px;font-weight:900;margin:6px 0}.subrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12px}.subrow b{font-size:14px;display:block;margin-top:2px}
+.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}.action{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 5px;text-align:center;cursor:pointer;box-shadow:0 4px 15px #17203308}.action i{font-style:normal;font-size:21px;display:block;margin-bottom:5px}.action span{font-size:10px;color:var(--muted);font-weight:700}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin:18px 2px 10px}.section-title h3{font-size:16px}.section-title span{font-size:11px;color:var(--blue)}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.info{background:#fff;border:1px solid var(--line);border-radius:15px;padding:14px}.info .ico{font-size:22px}.info h4{font-size:13px;margin:7px 0 4px}.info p{font-size:11px;color:var(--muted);line-height:1.45}
+.notice{margin-top:12px;background:#eef5ff;border-left:4px solid var(--blue2);padding:12px;border-radius:10px;font-size:11px;line-height:1.5;color:#3f4d63}
+.products{display:flex;flex-direction:column;gap:12px}.product{background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:0 5px 18px #17203309}.phead{display:flex;gap:12px;align-items:center}.picon{width:58px;height:58px;border-radius:15px;background:#eef4ff;color:var(--blue);display:grid;place-items:center;font-size:26px;font-weight:900}.phead h3{font-size:15px}.phead p{font-size:11px;color:var(--muted);margin-top:3px}.tag{margin-left:auto;background:#e9f7f1;color:var(--green);padding:5px 8px;border-radius:20px;font-size:10px;font-weight:800}
+.metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;background:#f7f9fc;border-radius:12px;margin:12px 0;padding:10px}.metric{text-align:center;border-right:1px solid var(--line)}.metric:last-child{border:0}.metric b{display:block;font-size:13px}.metric span{font-size:9px;color:var(--muted)}
+.buy{width:100%;border:0;padding:12px;border-radius:11px;background:var(--blue);color:#fff;font-weight:800;cursor:pointer}.buy:disabled{opacity:.45}
+.portfolio-card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:15px;margin-bottom:10px}.line{height:1px;background:var(--line);margin:12px 0}.row{display:flex;justify-content:space-between;gap:10px;font-size:12px;margin:7px 0}.green{color:var(--green)}.red{color:var(--danger)}
+.countdown{font-size:18px;font-weight:900;color:var(--blue);text-align:center;background:#eef4ff;border-radius:11px;padding:9px;margin-top:10px}
+.refbox{background:linear-gradient(135deg,#173f8a,#2458b8);color:#fff;border-radius:19px;padding:18px}.refcode{font-size:28px;font-weight:900;letter-spacing:4px;text-align:center;margin:12px 0}.refbuttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}.refbuttons button{border:0;border-radius:11px;padding:11px;font-weight:800;cursor:pointer}.copy{background:#fff;color:var(--blue)}.share{background:#ffffff20;color:#fff;border:1px solid #ffffff55!important}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}.stat b{display:block;font-size:20px}.stat span{font-size:10px;color:var(--muted)}
+.profile{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;text-align:center}.bigavatar{width:68px;height:68px;border-radius:50%;background:#eaf1ff;color:var(--blue);display:grid;place-items:center;margin:auto;font-size:28px;font-weight:900}.menu{margin-top:12px}.menuitem{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:9px;display:flex;justify-content:space-between;cursor:pointer;font-size:13px}.logout{width:100%;border:0;padding:13px;border-radius:13px;background:#fff0ef;color:var(--danger);font-weight:800;margin-top:8px}
+.bottom{position:fixed;bottom:0;left:0;right:0;height:68px;background:#fff;border-top:1px solid var(--line);display:flex;z-index:50}.nav{flex:1;text-align:center;padding-top:8px;color:#8b95a7;font-size:10px;font-weight:700;cursor:pointer}.nav .ni{font-size:20px;display:block;margin-bottom:2px}.nav.active{color:var(--blue)}
+.modalback{position:fixed;inset:0;background:#08152c99;z-index:100;display:flex;align-items:flex-end}.modal{background:#fff;width:100%;max-height:88vh;overflow:auto;border-radius:24px 24px 0 0;padding:20px}.close{float:right;font-size:25px;color:var(--muted);cursor:pointer}.amounts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:13px 0}.amount{padding:12px;border:1px solid var(--line);border-radius:11px;text-align:center;cursor:pointer;font-weight:700}.amount.selected{border-color:var(--blue);background:#eef4ff;color:var(--blue)}
+.history{background:#fff;border:1px solid var(--line);border-radius:15px;padding:14px;margin-bottom:9px}.status{font-size:10px;font-weight:800;padding:4px 7px;border-radius:10px;background:#eef2f7;color:#536176}.status.pending{background:#fff4d8;color:#8b6508}.status.success{background:#e9f7f1;color:var(--green)}.paybox{background:#f7f9fc;border:1px solid var(--line);border-radius:15px;padding:14px;margin-top:12px}.paynumber{font-size:20px;font-weight:900;color:var(--blue);display:flex;align-items:center;justify-content:space-between;gap:8px}.copymini{border:0;background:#eaf1ff;color:var(--blue);padding:8px;border-radius:9px;font-weight:800;cursor:pointer}
+@media(min-width:600px){.app{max-width:520px;margin:auto;background:var(--bg)}.bottom{max-width:520px;left:50%;transform:translateX(-50%)}}
+</style>
+</head>
+<body>
+
+<div id="auth" class="auth">
+<div class="authbox">
+<div class="brand"><div class="brandmark">B</div><h1>BTG Pactual</h1><p>Imari n'Ishoramari</p></div>
+<div class="tabs"><div id="tLogin" class="tab active" onclick="switchAuth('login')">Injira</div><div id="tReg" class="tab" onclick="switchAuth('register')">Iyandikishe</div></div>
+
+<div id="login">
+<div class="group"><label>Numero ya telefone</label><div class="phonewrap"><div class="country"><select id="loginCountry"></select></div><input id="loginPhone" class="input phoneinput" type="tel" placeholder="78xxxxxxx"></div></div>
+<div class="group"><label>Ijambo ry'ibanga</label><input id="loginPass" class="input" type="password" placeholder="Andika password"></div>
+<button class="primary" onclick="login()">INJIRA</button><div id="loginErr" class="err"></div>
+</div>
+
+<div id="register" class="hidden">
+<div class="group"><label>Amazina</label><input id="regName" class="input" placeholder="Amazina yawe"></div>
+<div class="group"><label>Igihugu na numero ya telefone</label><div class="phonewrap"><div class="country"><select id="regCountry"></select></div><input id="regPhone" class="input phoneinput" type="tel" placeholder="Numero yawe"></div></div>
+<div class="group"><label>Ijambo ry'ibanga</label><input id="regPass" class="input" type="password" placeholder="Nibura inyuguti 4"></div>
+<div class="group"><label>Kode y'ubutumire (niba ihari)</label><input id="regRef" class="input" placeholder="Kode y'ubutumire"></div>
+<button class="primary" onclick="register()">IYANDIKISHE</button><div id="regErr" class="err"></div>
+</div>
+</div></div>
+
+<div id="app" class="app hidden">
+<div class="top"><div class="toprow"><h2>BTG PACTUAL</h2><div id="avatar" class="avatar">B</div></div></div>
+
+<div id="home" class="page active"><div class="container">
+<div class="hero"><div class="small">Balance yose</div><div id="balance" class="balance">0 RWF</div><div class="subrow"><span>Yemewe kubikuza<b id="withdrawable">0 RWF</b></span><span>Yashowe<b id="invested">0 RWF</b></span></div></div>
+<div class="actions">
+<div class="action" onclick="openMoney('deposit')"><i>＋</i><span>KUBITSA</span></div>
+<div class="action" onclick="openMoney('withdraw')"><i>↑</i><span>KUBIKUZA</span></div>
+<div class="action" onclick="showPage('invest')"><i>◈</i><span>ISHORAMARI</span></div>
+<div class="action" onclick="showPage('history')"><i>▤</i><span>AMATEKA</span></div>
+</div>
+<div class="section-title"><h3>Serivisi z'imari</h3><span>BTG Pactual</span></div>
+<div class="info-grid">
+<div class="info"><div class="ico">◫</div><h4>Investment Banking</h4><p>Serivisi zijyanye n'ishoramari n'ibikorwa by'imari.</p></div>
+<div class="info"><div class="ico">◈</div><h4>Asset Management</h4><p>Gucunga umutungo n'ishoramari ry'abakiriya.</p></div>
+<div class="info"><div class="ico">♙</div><h4>Wealth Management</h4><p>Gufasha abakiriya gucunga no gutegura umutungo.</p></div>
+<div class="info"><div class="ico">▣</div><h4>Corporate Lending</h4><p>Ibisubizo by'imari bigenewe ibigo.</p></div>
+</div>
+</div></div>
+
+<div id="invest" class="page"><div class="container"><div class="section-title"><h3>Imigabane yo gushoramo</h3><span>Portfolio</span></div><div id="products" class="products"></div></div></div>
+
+<div id="portfolio" class="page"><div class="container"><div class="section-title"><h3>Portfolio yanjye</h3><span id="portCount">0</span></div><div id="portfolioList"></div></div></div>
+
+<div id="team" class="page"><div class="container">
+<div class="refbox"><div class="small">KODE Y'UBUTUMIRE</div><div id="refCode" class="refcode">------</div><div class="refbuttons"><button class="copy" onclick="copyRef()">KOPORORA</button><button class="share" onclick="shareRef()">SANGIZA</button></div></div>
+<div class="stats"><div class="stat"><b id="teamCount">0</b><span>Abatumiwe</span></div><div class="stat"><b id="refBonus">0 RWF</b><span>Bonus</span></div></div>
+<div class="section-title"><h3>Itsinda</h3><span>Ubutumire</span></div>
+<div class="notice">Sangiza abantu link y'ubutumire kugira ngo binjire muri serivisi.</div>
+<div style="margin-top:12px"><button class="primary" onclick="shareRef()">SANGIZA LINK Y'UBUTUMIRE</button></div>
+</div></div>
+
+<div id="profile" class="page"><div class="container"><div class="profile"><div id="bigAvatar" class="bigavatar">B</div><h3 id="profileName" style="margin-top:9px">Umukiriya</h3><p id="profilePhone" style="font-size:12px;color:var(--muted);margin-top:3px"></p><div class="line"></div><div class="row"><span>ID y'umukiriya</span><b id="clientId"></b></div></div>
+<div class="menu"><div class="menuitem" onclick="showPage('portfolio')"><span>◈ Portfolio yanjye</span><b>›</b></div><div class="menuitem" onclick="showPage('history')"><span>▤ Amateka y'ibikorwa</span><b>›</b></div><div class="menuitem" onclick="showPage('team')"><span>♧ Itsinda</span><b>›</b></div></div>
+<button class="logout" onclick="logout()">GUSOHOKA</button></div></div>
+
+<div id="history" class="page"><div class="container"><div class="section-title"><h3>Amateka ya transactions</h3><span>Transactions</span></div><div id="historyList"></div></div></div>
+
+<div class="bottom"><div class="nav active" onclick="showPage('home')"><span class="ni">⌂</span>Ahabanza</div><div class="nav" onclick="showPage('invest')"><span class="ni">◈</span>Ishoramari</div><div class="nav" onclick="showPage('portfolio')"><span class="ni">▥</span>Portfolio</div><div class="nav" onclick="showPage('team')"><span class="ni">♧</span>Itsinda</div><div class="nav" onclick="showPage('profile')"><span class="ni">●</span>Nje</div></div>
+</div>
+
+<div id="modalBack" class="modalback hidden" onclick="closeModal(event)"><div class="modal" onclick="event.stopPropagation()"><span class="close" onclick="closeModal()">×</span><div id="modalContent"></div></div></div>
+
+<script>
+const COUNTRIES=[
+["🇷🇼","Rwanda","+250"],["🇺🇬","Uganda","+256"],["🇰🇪","Kenya","+254"],["🇧🇮","Burundi","+257"],["🇨🇩","DR Congo","+243"],["🇹🇿","Tanzania","+255"],["🇸🇸","South Sudan","+211"],["🇿🇲","Zambia","+260"],["🇿🇦","South Africa","+27"],["🇳🇬","Nigeria","+234"],["🇬🇭","Ghana","+233"],["🇨🇲","Cameroon","+237"],["🇨🇮","Côte d’Ivoire","+225"],["🇸🇳","Senegal","+221"],["🇬🇧","United Kingdom","+44"],["🇺🇸","United States","+1"],["🇨🇦","Canada","+1"],["🇦🇪","UAE","+971"],["🇮🇳","India","+91"],["🇨🇳","China","+86"],["🇧🇷","Brazil","+55"],["🇫🇷","France","+33"],["🇩🇪","Germany","+49"],["🇧🇪","Belgium","+32"],["🇦🇺","Australia","+61"]
+];
+const PRODUCTS=[
+{id:1,name:"Imigabane ya mbere",desc:"Umugabane ushobora kubarwa muri portfolio yawe.",min:1000,rate:"—",term:"12 amezi",icon:"◫"},
+{id:2,name:"Imigabane ya kabiri",desc:"Ishoramari rifite igihe cyagenwe.",min:5000,rate:"—",term:"18 amezi",icon:"◈"},
+{id:3,name:"Imigabane ya gatatu",desc:"Umugabane wo kubika mu portfolio.",min:10000,rate:"—",term:"24 amezi",icon:"↗"},
+{id:4,name:"Imigabane ya kane",desc:"Umugabane ugenewe ishoramari rinini.",min:25000,rate:"—",term:"36 amezi",icon:"♙"}
+];
+let user=null;
+
+function money(n){return Number(n||0).toLocaleString()+" RWF"}
+function loadUsers(){return JSON.parse(localStorage.getItem("btg_users")||"{}")}
+function save(){localStorage.setItem("btg_user",JSON.stringify(user));let u=loadUsers();u[user.phone]=user;localStorage.setItem("btg_users",JSON.stringify(u))}
+function ref(){let c="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",s="BTG";for(let i=0;i<5;i++)s+=c[Math.floor(Math.random()*c.length)];return s}
+function fillCountries(){
+["loginCountry","regCountry"].forEach(id=>{let el=document.getElementById(id);el.innerHTML=COUNTRIES.map((c,i)=>`<option value="${c[2]}" ${i===0?"selected":""}>${c[0]} ${c[1]} ${c[2]}</option>`).join("")})
+}
+function fullPhone(country,phone){
+phone=String(phone||"").replace(/\D/g,"");country=String(country||"+250");
+if(phone.startsWith("00"))phone=phone.slice(2);
+if(phone.startsWith(country.replace("+","")))return "+"+phone;
+if(phone.startsWith("0"))phone=phone.slice(1);
+return country+phone;
+}
+function switchAuth(mode){document.getElementById("login").classList.toggle("hidden",mode!=="login");document.getElementById("register").classList.toggle("hidden",mode!=="register");document.getElementById("tLogin").classList.toggle("active",mode==="login");document.getElementById("tReg").classList.toggle("active",mode==="register")}
+function register(){
+let name=document.getElementById("regName").value.trim(),phone=fullPhone(document.getElementById("regCountry").value,document.getElementById("regPhone").value),pass=document.getElementById("regPass").value,rb=document.getElementById("regRef").value.trim().toUpperCase(),e=document.getElementById("regErr");e.textContent="";
+if(!name||!phone||!pass){e.textContent="Uzuza amazina, igihugu/numero na password.";return}
+if(pass.length<4){e.textContent="Password igomba kuba nibura inyuguti 4.";return}
+if(phone.length<8){e.textContent="Numero ya telefone ntabwo yuzuye.";return}
+let users=loadUsers();if(users[phone]){e.textContent="Iyi numero isanzwe iriho. Koresha Injira.";return}
+user={name,phone,pass,balance:0,withdrawable:0,invested:0,gain:0,refCode:ref(),referredBy:rb||null,team:0,refBonus:0,portfolio:[],history:[],created:Date.now()};
+users[phone]=user;localStorage.setItem("btg_users",JSON.stringify(users));localStorage.setItem("btg_user",JSON.stringify(user));showApp();
+}
+function login(){
+let phone=fullPhone(document.getElementById("loginCountry").value,document.getElementById("loginPhone").value),pass=document.getElementById("loginPass").value,e=document.getElementById("loginErr");e.textContent="";
+let users=loadUsers(),u=users[phone]||users[document.getElementById("loginPhone").value.trim()];
+if(!u){e.textContent="Numero ntiyanditswe.";return}
+if(u.pass!==pass){e.textContent="Password siyo.";return}user=u;save();showApp();
+}
+function showApp(){document.getElementById("auth").classList.add("hidden");document.getElementById("app").classList.remove("hidden");render();renderProducts();startCountdowns()}
+function logout(){localStorage.removeItem("btg_user");user=null;document.getElementById("app").classList.add("hidden");document.getElementById("auth").classList.remove("hidden")}
+function showPage(id){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");const map={"home":0,"invest":1,"portfolio":2,"team":3,"profile":4,"history":0};document.querySelectorAll(".nav").forEach(x=>x.classList.remove("active"));let navs=document.querySelectorAll(".nav");if(map[id]!==undefined)navs[map[id]].classList.add("active");render()}
+function render(){
+if(!user)return;
+document.getElementById("balance").textContent=money(user.balance);
+document.getElementById("withdrawable").textContent=money(user.withdrawable);
+document.getElementById("invested").textContent=money(user.invested);
+document.getElementById("profileName").textContent=user.name;
+document.getElementById("profilePhone").textContent=user.phone;
+document.getElementById("clientId").textContent=user.refCode;
+document.getElementById("refCode").textContent=user.refCode;
+document.getElementById("teamCount").textContent=user.team||0;
+document.getElementById("refBonus").textContent=money(user.refBonus||0);
+document.getElementById("portCount").textContent=(user.portfolio||[]).length;
+document.getElementById("avatar").textContent=(user.name||"B").charAt(0).toUpperCase();
+document.getElementById("bigAvatar").textContent=(user.name||"B").charAt(0).toUpperCase();
+renderPortfolio();renderHistory();
+}
+function renderProducts(){let box=document.getElementById("products");box.innerHTML="";PRODUCTS.forEach(p=>{box.innerHTML+=`<div class="product"><div class="phead"><div class="picon">${p.icon}</div><div><h3>${p.name}</h3><p>${p.desc}</p></div></div><div class="metrics"><div class="metric"><b>${money(p.min)}</b><span>Minimum</span></div><div class="metric"><b>${p.rate}</b><span>Inyungu</span></div><div class="metric"><b>${p.term}</b><span>Igihe</span></div></div><button class="buy" onclick="invest(${p.id})">SHORAMO</button></div>`})}
+function invest(id){
+let p=PRODUCTS.find(x=>x.id===id);if(user.balance<p.min){alert("Balance yawe ntihagije.");return}
+let amount=Number(prompt("Andika amafaranga ushaka gushoramo:",p.min));if(!amount||amount<p.min){alert("Amafaranga ntabwo ageze kuri minimum.");return}
+if(amount>user.balance){alert("Balance yawe ntihagije.");return}
+user.balance-=amount;user.invested+=amount;user.portfolio.push({id:p.id,name:p.name,amount,start:Date.now(),termMonths:parseInt(p.term),status:"Ikora"});user.history.unshift({type:"Ishoramari",amount,detail:p.name,date:Date.now(),status:"Byemewe"});save();render();alert("Ishoramari ryatangiye neza.");
+}
+function renderPortfolio(){
+let box=document.getElementById("portfolioList");box.innerHTML="";if(!user.portfolio||!user.portfolio.length){box.innerHTML='<div class="notice">Nta mugabane urashoramo. Jya kuri Ishoramari utangire.</div>';return}
+user.portfolio.forEach((p,i)=>{let end=p.start+(p.termMonths||12)*30*24*60*60*1000;box.innerHTML+=`<div class="portfolio-card"><div class="row"><b>${p.name}</b><span class="status success">${p.status}</span></div><div class="line"></div><div class="row"><span>Amafaranga washoyemo</span><b>${money(p.amount)}</b></div><div class="row"><span>Byatangiye</span><span>${new Date(p.start).toLocaleDateString("rw-RW")}</span></div><div class="row"><span>Birangira</span><span>${new Date(end).toLocaleDateString("rw-RW")}</span></div><div class="countdown" id="cd-${i}" data-end="${end}">Kubara...</div></div>`})
+startCountdowns()
+}
+function startCountdowns(){document.querySelectorAll(".countdown").forEach(el=>{clearInterval(el._timer);let end=Number(el.dataset.end);let tick=()=>{let d=Math.max(0,end-Date.now()),days=Math.floor(d/86400000),h=Math.floor(d%86400000/3600000),m=Math.floor(d%3600000/60000),s=Math.floor(d%60000/1000);el.textContent=d<=0?"Igihe cyarangiye":`${days} iminsi ${h}h ${m}m ${s}s`;};tick();el._timer=setInterval(tick,1000)})}
+function renderHistory(){
+let box=document.getElementById("historyList");box.innerHTML="";if(!user.history||!user.history.length){box.innerHTML='<div class="notice">Nta transaction iraboneka.</div>';return}
+user.history.slice(0,50).forEach(h=>{let cls=(h.status||"").includes("Byemewe")||(h.status||"").includes("Byakunze")?"success":"pending";box.innerHTML+=`<div class="history"><div class="row"><b>${h.type}</b><span class="status ${cls}">${h.status||"Bitegerejwe"}</span></div><div class="row"><span>${h.detail||""}</span><b>${money(h.amount)}</b></div><div class="row"><span>${new Date(h.date).toLocaleString("rw-RW")}</span></div></div>`})
+}
+function openMoney(type){
+let c=document.getElementById("modalContent");
+if(type==="deposit"){
+c.innerHTML=`<h3>KUBITSA</h3><p style="font-size:12px;color:var(--muted);margin:7px 0">Amafaranga yo kubitsa: <b>1,500 RWF</b> y'ikiguzi cya serivisi.</p><div class="group"><label>Umubare w'amafaranga ushaka kubitsa</label><input id="moneyAmount" class="input" type="number" min="1" placeholder="Andika amafaranga"></div><button class="primary" onclick="continueDeposit()">KOMEZA</button>`;
+}else{
+c.innerHTML=`<h3>KUBIKUZA</h3><p style="font-size:12px;color:var(--muted);margin:7px 0">Minimum yo kubikuza ni <b>1,000 RWF</b>.</p><div class="group"><label>Umubare w'amafaranga</label><input id="moneyAmount" class="input" type="number" min="1000" placeholder="Andika amafaranga"></div><div class="group"><label>Numero yakira amafaranga</label><input id="moneyPhone" class="input" type="tel" value="${user.phone}" placeholder="Numero yakira"></div><button class="primary" onclick="submitWithdraw()">KOMEZA</button>`;
+}
+document.getElementById("modalBack").classList.remove("hidden");
+}
+function continueDeposit(){
+let a=Number(document.getElementById("moneyAmount").value);if(!a||a<=0){alert("Andika umubare w'amafaranga.");return}
+let total=a+1500;
+document.getElementById("modalContent").innerHTML=`<h3>ISHYURA NA MTN MOMO</h3><p style="font-size:12px;color:var(--muted);margin:7px 0">Ohereza <b>${money(total)}</b> kuri konti ikurikira.</p><div class="paybox"><div class="row"><span>Numero yo kwishyuraho</span><b>MTN MoMo</b></div><div class="paynumber"><span>0792674225</span><button class="copymini" onclick="copyText('0792674225')">KOPI</button></div><div class="row"><span>Izina rya konti</span><b>Mugisha Patrick</b></div><div style="margin-top:10px;font-size:12px"><b>USSD:</b></div><div class="paynumber" style="font-size:13px;margin-top:5px"><span>*182*1*1*0792674225#</span><button class="copymini" onclick="copyText('*182*1*1*0792674225#')">KOPI</button></div></div><button class="primary" style="margin-top:14px" onclick="confirmDeposit(${a})">NEMEZA KO WISHYUYE</button>`;
+}
+function confirmDeposit(a){
+user.history.unshift({type:"Kubitsa",amount:a,detail:"MTN MoMo 0792674225 — amafaranga ategereje kugera kuri konti",date:Date.now(),status:"Bitegerejwe"});save();render();closeModal();alert("Byakunze. Tegereza amafaranga agere kuri konti yawe.");
+}
+function submitWithdraw(){
+let a=Number(document.getElementById("moneyAmount").value),phone=document.getElementById("moneyPhone").value.trim();
+if(!a||a<1000){alert("Minimum yo kubikuza ni 1,000 RWF.");return}
+if(a>Number(user.withdrawable||0)){alert("Amafaranga yemewe kubikuza ntahagije.");return}
+if(!phone){alert("Andika numero yakira amafaranga.");return}
+user.withdrawable-=a;user.history.unshift({type:"Kubikuza",amount:a,detail:"Koherezwa kuri "+phone,date:Date.now(),status:"Bitegerejwe"});save();render();closeModal();alert("Byakunze. Tegereza amafaranga uyabone kuri konti yawe.");
+}
+function pick(el,a){document.querySelectorAll(".amount").forEach(x=>x.classList.remove("selected"));el.classList.add("selected");document.getElementById("moneyAmount").value=a}
+function closeModal(e){if(!e||e.target===document.getElementById("modalBack")||e.target.classList.contains("close"))document.getElementById("modalBack").classList.add("hidden")}
+function copyText(t){navigator.clipboard?.writeText(t).then(()=>alert("Byakoporowe neza.")).catch(()=>alert(t))}
+function copyRef(){copyText(user.refCode)}
+function shareRef(){let link=location.href.split("#")[0]+"?ref="+encodeURIComponent(user.refCode),txt="Iyandikishe ukoresheje link yanjye ya BTG Pactual: "+link;if(navigator.share)navigator.share({title:"BTG Pactual",text:txt,url:link});else copyText(txt)}
+fillCountries();
+const saved=localStorage.getItem("btg_user");if(saved){try{user=JSON.parse(saved);showApp()}catch(e){}}
+</script>
+</body>
+</html>
