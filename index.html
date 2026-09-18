@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Enterprise Cars</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { background: #0f0f13; color: #fff; min-height: 100vh; overflow-x: hidden; }
+    .hidden { display: none !important; }
+
+    /* ===== AUTH ===== */
+    .auth-screen { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 24px; background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f0f13 100%); }
+    .logo { text-align: center; margin-bottom: 32px; }
+    .logo h1 { font-size: 28px; background: linear-gradient(90deg, #a855f7, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .logo p { color: #94a3b8; font-size: 14px; margin-top: 6px; }
+    .auth-card { background: #1e1e2d; border-radius: 20px; padding: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
+    .auth-tabs { display: flex; margin-bottom: 24px; background: #12121a; border-radius: 12px; padding: 4px; }
+    .auth-tab { flex: 1; text-align: center; padding: 12px; border-radius: 10px; font-weight: 600; cursor: pointer; color: #94a3b8; }
+    .auth-tab.active { background: linear-gradient(90deg, #7c3aed, #2563eb); color: #fff; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; color: #94a3b8; margin-bottom: 6px; }
+    .input-wrap { display: flex; align-items: center; background: #12121a; border-radius: 12px; padding: 4px 12px; border: 1px solid #2a2a3a; }
+    .input-wrap:focus-within { border-color: #7c3aed; }
+    .country-select { background: transparent; border: none; color: #fff; font-size: 16px; outline: none; padding: 10px 4px; min-width: 90px; }
+    .phone-input, .text-input { flex: 1; background: transparent; border: none; color: #fff; font-size: 16px; padding: 12px 8px; outline: none; }
+    .btn-primary { width: 100%; padding: 16px; border: none; border-radius: 14px; background: linear-gradient(90deg, #7c3aed, #2563eb); color: #fff; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 8px; }
+    .btn-primary:active { opacity: 0.9; }
+    .error-msg { color: #f87171; font-size: 13px; margin-top: 8px; text-align: center; }
+
+    /* ===== MAIN APP ===== */
+    .app { display: none; flex-direction: column; min-height: 100vh; padding-bottom: 70px; }
+    .app.active { display: flex; }
+
+    /* Header */
+    .header { padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; background: #1a1a2e; }
+    .header h2 { font-size: 18px; }
+    .header .flags { display: flex; gap: 8px; }
+
+    /* Home */
+    .wallet-card { margin: 16px; padding: 20px; border-radius: 20px; background: linear-gradient(135deg, #7c3aed, #2563eb); position: relative; overflow: hidden; }
+    .wallet-card::after { content: ''; position: absolute; top: -50%; right: -30%; width: 200px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 50%; }
+    .wallet-label { font-size: 13px; opacity: 0.9; }
+    .wallet-balance { font-size: 36px; font-weight: 800; margin: 8px 0; }
+    .wallet-sub { display: flex; gap: 16px; font-size: 13px; margin-top: 12px; }
+    .quick-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 16px 16px; }
+    .action-btn { background: #1e1e2d; border-radius: 16px; padding: 20px; text-align: center; cursor: pointer; border: 1px solid #2a2a3a; }
+    .action-btn .icon { font-size: 28px; margin-bottom: 8px; }
+    .action-btn span { font-size: 14px; color: #cbd5e1; }
+
+    /* Fleet */
+    .fleet-list { padding: 16px; display: flex; flex-direction: column; gap: 16px; }
+    .car-card { background: #1e1e2d; border-radius: 18px; padding: 16px; border: 1px solid #2a2a3a; }
+    .car-header { display: flex; gap: 14px; }
+    .car-img { width: 90px; height: 70px; background: #12121a; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+    .car-info h3 { font-size: 16px; margin-bottom: 4px; }
+    .car-info p { font-size: 12px; color: #94a3b8; }
+    .car-price { margin-top: 12px; display: flex; justify-content: space-between; align-items: center; }
+    .price { font-size: 18px; font-weight: 700; color: #a78bfa; }
+    .daily { background: #166534; color: #86efac; padding: 4px 10px; border-radius: 20px; font-size: 12px; }
+    .buy-btn { width: 100%; margin-top: 14px; padding: 12px; border: none; border-radius: 12px; background: linear-gradient(90deg, #7c3aed, #ec4899); color: #fff; font-weight: 700; cursor: pointer; }
+
+    /* Team */
+    .team-section { padding: 16px; }
+    .ref-card { background: #1e1e2d; border-radius: 16px; padding: 16px; margin-bottom: 16px; }
+    .ref-code { font-size: 28px; font-weight: 800; letter-spacing: 4px; text-align: center; color: #a78bfa; margin: 12px 0; }
+    .ref-btns { display: flex; gap: 10px; }
+    .ref-btns button { flex: 1; padding: 12px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; }
+    .btn-copy { background: linear-gradient(90deg, #7c3aed, #ec4899); color: #fff; }
+    .btn-share { background: #334155; color: #fff; }
+    .cat-card { background: #1e1e2d; border-radius: 14px; padding: 14px; margin-bottom: 10px; border-left: 4px solid; }
+    .cat-a { border-color: #22c55e; }
+    .cat-b { border-color: #3b82f6; }
+    .cat-c { border-color: #a855f7; }
+
+    /* Spin */
+    .spin-area { text-align: center; padding: 20px; }
+    .wheel { width: 260px; height: 260px; margin: 0 auto 20px; border-radius: 50%; background: conic-gradient(#22c55e 0deg 60deg, #3b82f6 60deg 120deg, #a855f7 120deg 180deg, #f59e0b 180deg 240deg, #ef4444 240deg 300deg, #8b5cf6 300deg 360deg); position: relative; border: 8px solid #fbbf24; transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99); }
+    .wheel-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: #1e1e2d; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; border: 3px solid #fbbf24; z-index: 2; }
+    .spin-btn { padding: 14px 40px; border: none; border-radius: 30px; background: linear-gradient(90deg, #f59e0b, #ef4444); color: #fff; font-weight: 700; font-size: 16px; cursor: pointer; }
+
+    /* Profile */
+    .profile-header { background: linear-gradient(135deg, #7c3aed, #2563eb); margin: 16px; border-radius: 20px; padding: 24px; text-align: center; }
+    .profile-menu { padding: 0 16px; }
+    .menu-item { background: #1e1e2d; border-radius: 14px; padding: 16px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; border: 1px solid #2a2a3a; }
+    .menu-item:active { background: #252535; }
+    .logout-btn { width: calc(100% - 32px); margin: 20px 16px; padding: 16px; border: none; border-radius: 14px; background: #7f1d1d; color: #fca5a5; font-weight: 700; cursor: pointer; }
+
+    /* Bottom Nav */
+    .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 65px; background: #1a1a2e; display: flex; border-top: 1px solid #2a2a3a; z-index: 100; }
+    .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 11px; color: #64748b; cursor: pointer; }
+    .nav-item.active { color: #a78bfa; }
+    .nav-item .icon { font-size: 22px; margin-bottom: 2px; }
+
+    /* Modal */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: flex-end; z-index: 200; }
+    .modal { background: #1e1e2d; width: 100%; border-radius: 24px 24px 0 0; padding: 24px; max-height: 85vh; overflow-y: auto; }
+    .modal h3 { margin-bottom: 16px; }
+    .amount-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
+    .amount-btn { padding: 14px; background: #12121a; border: 1px solid #2a2a3a; border-radius: 12px; color: #fff; font-weight: 600; cursor: pointer; text-align: center; }
+    .amount-btn.selected { border-color: #7c3aed; background: #2e1065; }
+    .close-modal { position: absolute; top: 16px; right: 20px; font-size: 24px; cursor: pointer; color: #94a3b8; }
+
+    .page { display: none; }
+    .page.active { display: block; }
+
+    .empty-state { text-align: center; padding: 60px 20px; color: #64748b; }
+    .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+
+  <!-- ========== AUTH SCREENS ========== -->
+  <div id="authScreen" class="auth-screen">
+    <div class="logo">
+      <h1>ENTERPRISE CARS</h1>
+      <p>Ishoramari n'ubucuruzi bw'imodoka</p>
+    </div>
+
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <div class="auth-tab active" onclick="switchAuth('login')">Login</div>
+        <div class="auth-tab" onclick="switchAuth('register')">Register</div>
+      </div>
+
+      <!-- LOGIN -->
+      <div id="loginForm">
+        <div class="form-group">
+          <label>Igihugu / Country</label>
+          <div class="input-wrap">
+            <select id="loginCountry" class="country-select" onchange="updateFlag('login')"></select>
+            <input type="tel" id="loginPhone" class="phone-input" placeholder="78xxxxxxx" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <div class="input-wrap">
+            <input type="password" id="loginPass" class="text-input" placeholder="••••••••" />
+          </div>
+        </div>
+        <button class="btn-primary" onclick="doLogin()">INJIRA</button>
+        <p id="loginError" class="error-msg"></p>
+      </div>
+
+      <!-- REGISTER -->
+      <div id="registerForm" class="hidden">
+        <div class="form-group">
+          <label>Amazina</label>
+          <div class="input-wrap">
+            <input type="text" id="regName" class="text-input" placeholder="Amazina yawe" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Igihugu / Country</label>
+          <div class="input-wrap">
+            <select id="regCountry" class="country-select" onchange="updateFlag('reg')"></select>
+            <input type="tel" id="regPhone" class="phone-input" placeholder="78xxxxxxx" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <div class="input-wrap">
+            <input type="password" id="regPass" class="text-input" placeholder="••••••••" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Kode y'ubutumire (optional)</label>
+          <div class="input-wrap">
+            <input type="text" id="regRef" class="text-input" placeholder="JVG0C2" />
+          </div>
+        </div>
+        <button class="btn-primary" onclick="doRegister()">IYANDIKISHE</button>
+        <p id="regError" class="error-msg"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== MAIN APP ========== -->
+  <div id="mainApp" class="app">
+    <!-- HOME -->
+    <div id="page-home" class="page active">
+      <div class="header">
+        <h2>ENTERPRISE CARS</h2>
+        <div class="flags" id="userFlag"></div>
+      </div>
+
+      <div class="wallet-card">
+        <div class="wallet-label">AMAFARANGA ARIHO (WALLET)</div>
+        <div class="wallet-balance" id="balanceDisplay">1,000 RWF</div>
+        <div class="wallet-sub">
+          <span>Inyungu: <b id="totalProfit">0</b> RWF</span>
+          <span>Abikuza: <b id="withdrawable">0</b> RWF</span>
+        </div>
+      </div>
+
+      <div class="quick-actions">
+        <div class="action-btn" onclick="openModal('deposit')">
+          <div class="icon">⬇️</div>
+          <span>KWINJIZA</span>
+        </div>
+        <div class="action-btn" onclick="openModal('withdraw')">
+          <div class="icon">⬆️</div>
+          <span>KUBIKUZA</span>
+        </div>
+        <div class="action-btn" onclick="showPage('team')">
+          <div class="icon">👥</div>
+          <span>ITSINDA</span>
+        </div>
+        <div class="action-btn" onclick="showPage('fleet')">
+          <div class="icon">🎁</div>
+          <span>KORA TASK</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLEET -->
+    <div id="page-fleet" class="page">
+      <div class="header"><h2>IMIGABANE YANJYE</h2></div>
+      <div class="fleet-list" id="fleetList"></div>
+    </div>
+
+    <!-- TEAM -->
+    <div id="page-team" class="page">
+      <div class="header"><h2>ITSINDA RYANJYE</h2></div>
+      <div class="team-section">
+        <div class="ref-card">
+          <p style="text-align:center;color:#94a3b8;font-size:13px">KODE YANJYE Y'UBUTUMIRE</p>
+          <div class="ref-code" id="myRefCode">------</div>
+          <div class="ref-btns">
+            <button class="btn-copy" onclick="copyRef()">📋 KOPORORA</button>
+            <button class="btn-share" onclick="shareRef()">🔗 SANGIZA</button>
+          </div>
+        </div>
+
+        <div class="cat-card cat-a">
+          <strong>CATEGORY A – Level 0,1,2</strong> <span style="float:right;background:#166534;padding:2px 8px;border-radius:10px;font-size:12px">5%</span>
+          <p style="font-size:12px;color:#94a3b8;margin-top:6px">Uhabwa 5% kuri buri task y'umunyamuryango</p>
+          <p style="font-size:13px;margin-top:8px">Abanyamuryango: <b id="catA">0</b></p>
+        </div>
+        <div class="cat-card cat-b">
+          <strong>CATEGORY B – Level 3,4</strong> <span style="float:right;background:#1e40af;padding:2px 8px;border-radius:10px;font-size:12px">10%</span>
+          <p style="font-size:12px;color:#94a3b8;margin-top:6px">Uhabwa 10% kuri buri task</p>
+          <p style="font-size:13px;margin-top:8px">Abanyamuryango: <b id="catB">0</b></p>
+        </div>
+        <div class="cat-card cat-c">
+          <strong>CATEGORY C – Level 5,6,7</strong> <span style="float:right;background:#6b21a8;padding:2px 8px;border-radius:10px;font-size:12px">15%</span>
+          <p style="font-size:12px;color:#94a3b8;margin-top:6px">Uhabwa 15% kuri buri task</p>
+          <p style="font-size:13px;margin-top:8px">Abanyamuryango: <b id="catC">0</b></p>
+        </div>
+
+        <!-- SPIN -->
+        <div class="spin-area">
+          <h3 style="margin-bottom:12px">🎡 URUZIGA RW'AMAHIRWE</h3>
+          <div class="wheel" id="wheel">
+            <div class="wheel-center">SPIN</div>
+          </div>
+          <p style="color:#94a3b8;margin-bottom:12px">Spins usigaranye: <b id="spinsLeft">0</b></p>
+          <button class="spin-btn" onclick="doSpin()">ZUNGURUTSA</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE -->
+    <div id="page-profile" class="page">
+      <div class="profile-header">
+        <div style="font-size:40px;margin-bottom:8px">👤</div>
+        <div id="profilePhone" style="font-size:18px;font-weight:700"></div>
+        <div style="font-size:13px;opacity:0.9;margin-top:4px">VIP 1 • ID: <span id="profileId"></span></div>
+        <div style="margin-top:12px;font-size:24px;font-weight:800" id="profileBalance">1,000 RWF</div>
+      </div>
+
+      <div class="profile-menu">
+        <div class="menu-item" onclick="showPage('fleet')"><span>🚗 Imodoka Zanjye</span><span>›</span></div>
+        <div class="menu-item" onclick="showPage('team')"><span>👥 Itsinda Ryanjye</span><span>›</span></div>
+        <div class="menu-item" onclick="openModal('withdraw')"><span>⬆️ Kubikuza</span><span>›</span></div>
+        <div class="menu-item" onclick="openModal('deposit')"><span>⬇️ Kwinjiza</span><span>›</span></div>
+        <div class="menu-item"><span>📜 Amateka</span><span>›</span></div>
+        <div class="menu-item"><span>🛡️ Umutekano n'Amategeko</span><span>›</span></div>
+      </div>
+      <button class="logout-btn" onclick="logout()">GUSOHOKA (SIGN OUT)</button>
+    </div>
+
+    <!-- BOTTOM NAV -->
+    <div class="bottom-nav">
+      <div class="nav-item active" onclick="showPage('home')">
+        <div class="icon">🏠</div>
+        <span>Ahabanza</span>
+      </div>
+      <div class="nav-item" onclick="showPage('fleet')">
+        <div class="icon">🚗</div>
+        <span>Umugabane</span>
+      </div>
+      <div class="nav-item" onclick="showPage('team')">
+        <div class="icon">👥</div>
+        <span>Itsinda</span>
+      </div>
+      <div class="nav-item" onclick="showPage('profile')">
+        <div class="icon">👤</div>
+        <span>Nije</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODALS -->
+  <div id="modalOverlay" class="modal-overlay hidden" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <span class="close-modal" onclick="closeModal()">×</span>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    // ========== DATA ==========
+    const countries = [
+      { code: 'RW', name: 'Rwanda', dial: '+250', flag: '🇷🇼' },
+      { code: 'KE', name: 'Kenya', dial: '+254', flag: '🇰🇪' },
+      { code: 'UG', name: 'Uganda', dial: '+256', flag: '🇺🇬' },
+      { code: 'TZ', name: 'Tanzania', dial: '+255', flag: '🇹🇿' },
+      { code: 'BI', name: 'Burundi', dial: '+257', flag: '🇧🇮' },
+      { code: 'CD', name: 'DR Congo', dial: '+243', flag: '🇨🇩' },
+      { code: 'NG', name: 'Nigeria', dial: '+234', flag: '🇳🇬' },
+      { code: 'GH', name: 'Ghana', dial: '+233', flag: '🇬🇭' },
+      { code: 'ZA', name: 'South Africa', dial: '+27', flag: '🇿🇦' },
+      { code: 'US', name: 'USA', dial: '+1', flag: '🇺🇸' },
+    ];
+
+    const cars = [
+      { id: 1, name: 'Share Mini (Level 0)', desc: 'Urban City EV Hatchback', price: 10000, daily: 300, total: 109500, emoji: '🚗', level: 'STARTER' },
+      { id: 2, name: 'Share 1 (Level 1)', desc: 'Aeolus EV Sedan', price: 21000, daily: 640, total: 233600, emoji: '🚙', level: 'BRONZE' },
+      { id: 3, name: 'Share 2 (Level 2)', desc: 'BYD Seal EV Crossover', price: 92000, daily: 2500, total: 912500, emoji: '🚘', level: 'SILVER' },
+      { id: 4, name: 'Share 3 (Level 3)', desc: 'Tesla Model 3', price: 240000, daily: 6500, total: 2372500, emoji: '🏎️', level: 'GOLD' },
+      { id: 5, name: 'Share 4 (Level 4)', desc: 'Mercedes EQS', price: 500000, daily: 14000, total: 5110000, emoji: '🏁', level: 'PLATINUM' },
+    ];
+
+    let user = null;
+    let spinning = false;
+
+    // ========== INIT ==========
+    function init() {
+      // fill country selects
+      const opts = countries.map(c => `<option value="\( {c.code}"> \){c.flag} ${c.dial}</option>`).join('');
+      document.getElementById('loginCountry').innerHTML = opts;
+      document.getElementById('regCountry').innerHTML = opts;
+
+      // check logged in
+      const saved = localStorage.getItem('ec_user');
+      if (saved) {
+        user = JSON.parse(saved);
+        showApp();
+      }
+    }
+
+    function updateFlag(type) {
+      // just for visual, already in select
+    }
+
+    function switchAuth(mode) {
+      document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+      if (mode === 'login') {
+        document.querySelectorAll('.auth-tab')[0].classList.add('active');
+        document.getElementById('loginForm').classList.remove('hidden');
+        document.getElementById('registerForm').classList.add('hidden');
+      } else {
+        document.querySelectorAll('.auth-tab')[1].classList.add('active');
+        document.getElementById('loginForm').classList.add('hidden');
+        document.getElementById('registerForm').classList.remove('hidden');
+      }
+    }
+
+    // ========== AUTH ==========
+    function doRegister() {
+      const name = document.getElementById('regName').value.trim();
+      const country = document.getElementById('regCountry').value;
+      const phone = document.getElementById('regPhone').value.trim();
+      const pass = document.getElementById('regPass').value;
+      const ref = document.getElementById('regRef').value.trim().toUpperCase();
+
+      if (!name || !phone || !pass) {
+        document.getElementById('regError').textContent = 'Uzuza byose!';
+        return;
+      }
+      if (pass.length < 4) {
+        document.getElementById('regError').textContent = 'Password igomba kuba 4+';
+        return;
+      }
+
+      const c = countries.find(x => x.code === country);
+      const fullPhone = c.dial + phone;
+
+      // check if exists
+      const users = JSON.parse(localStorage.getItem('ec_users') || '{}');
+      if (users[fullPhone]) {
+        document.getElementById('regError').textContent = 'Iyi numero isanzwe iriho!';
+        return;
+      }
+
+      const newUser = {
+        name, country, phone: fullPhone, pass,
+        balance: 1000,
+        withdrawable: 0,
+        profit: 0,
+        refCode: generateRef(),
+        referredBy: ref || null,
+        spins: 0,
+        myCars: [],
+        team: { a: 0, b: 0, c: 0 },
+        created: Date.now()
+      };
+
+      users[fullPhone] = newUser;
+      localStorage.setItem('ec_users', JSON.stringify(users));
+      localStorage.setItem('ec_user', JSON.stringify(newUser));
+      user = newUser;
+      showApp();
+    }
+
+    function doLogin() {
+      const country = document.getElementById('loginCountry').value;
+      const phone = document.getElementById('loginPhone').value.trim();
+      const pass = document.getElementById('loginPass').value;
+      const c = countries.find(x => x.code === country);
+      const fullPhone = c.dial + phone;
+
+      const users = JSON.parse(localStorage.getItem('ec_users') || '{}');
+      const u = users[fullPhone];
+
+      if (!u || u.pass !== pass) {
+        document.getElementById('loginError').textContent = 'Numero cyangwa password siyo!';
+        return;
+      }
+
+      // must use same country
+      if (u.country !== country) {
+        document.getElementById('loginError').textContent = 'Hitamo igihugu wiyandikishijeho!';
+        return;
+      }
+
+      user = u;
+      localStorage.setItem('ec_user', JSON.stringify(user));
+      showApp();
+    }
+
+    function generateRef() {
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      let code = '';
+      for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+      return code;
+    }
+
+    function logout() {
+      localStorage.removeItem('ec_user');
+      user = null;
+      document.getElementById('mainApp').classList.remove('active');
+      document.getElementById('authScreen').style.display = 'flex';
+    }
+
+    function showApp() {
+      document.getElementById('authScreen').style.display = 'none';
+      document.getElementById('mainApp').classList.add('active');
+      renderAll();
+    }
+
+    // ========== RENDER ==========
+    function renderAll() {
+      if (!user) return;
+      document.getElementById('balanceDisplay').textContent = user.balance.toLocaleString() + ' RWF';
+      document.getElementById('totalProfit').textContent = user.profit.toLocaleString();
+      document.getElementById('withdrawable').textContent = user.withdrawable.toLocaleString();
+      document.getElementById('profilePhone').textContent = user.phone;
+      document.getElementById('profileId').textContent = user.refCode;
+      document.getElementById('profileBalance').textContent = user.balance.toLocaleString() + ' RWF';
+      document.getElementById('myRefCode').textContent = user.refCode;
+      document.getElementById('spinsLeft').textContent = user.spins;
+      document.getElementById('catA').textContent = user.team.a;
+      document.getElementById('catB').textContent = user.team.b;
+      document.getElementById('catC').textContent = user.team.c;
+
+      const c = countries.find(x => x.code === user.country);
+      document.getElementById('userFlag').innerHTML = c ? c.flag : '';
+
+      // fleet
+      const list = document.getElementById('fleetList');
+      list.innerHTML = cars.map(car => `
+        <div class="car-card">
+          <div class="car-header">
+            <div class="car-img">${car.emoji}</div>
+            <div class="car-info">
+              <h3>${car.name}</h3>
+              <p>${car.desc}</p>
+              <p style="margin-top:4px">⏰ Igihe: iminsi 365</p>
+            </div>
+          </div>
+          <div class="car-price">
+            <div class="price">${car.price.toLocaleString()} RWF</div>
+            <div class="daily">+${car.daily} RWF / umunsi</div>
+          </div>
+          <p style="font-size:12px;color:#94a3b8;margin-top:8px">Inyungu yose (365): <b style="color:#a78bfa">${car.total.toLocaleString()} RWF</b></p>
+          <button class="buy-btn" onclick="buyCar(\( {car.id})">GURA NONAHA ( \){car.price.toLocaleString()} RWF)</button>
+        </div>
+      `).join('');
+    }
+
+    function showPage(page) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-' + page).classList.add('active');
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const idx = { home: 0, fleet: 1, team: 2, profile: 3 }[page];
+      document.querySelectorAll('.nav-item')[idx].classList.add('active');
+    }
+
+    // ========== ACTIONS ==========
+    function buyCar(id) {
+      const car = cars.find(c => c.id === id);
+      if (user.balance < car.price) {
+        alert('Amafaranga ntahagije! Injiza amafaranga.');
+        return;
+      }
+      if (!confirm(`Ushaka kugura ${car.name} kuri ${car.price.toLocaleString()} RWF?`)) return;
+
+      user.balance -= car.price;
+      user.myCars.push({ ...car, boughtAt: Date.now() });
+      user.spins += 1; // give spin
+      saveUser();
+      renderAll();
+      alert('Byagenze neza! Waguze ' + car.name);
+    }
+
+    function doSpin() {
+      if (spinning) return;
+      if (user.spins <= 0) {
+        alert('Nta spins usigaranye! Tumira inshuti kugira ngo ubone spins.');
+        return;
+      }
+      spinning = true;
+      user.spins--;
+      const prizes = [100, 200, 500, 1000, 10000, 500000];
+      const win = prizes[Math.floor(Math.random() * prizes.length)];
+      const deg = 1800 + Math.random() * 360;
+      document.getElementById('wheel').style.transform = `rotate(${deg}deg)`;
+
+      setTimeout(() => {
+        user.balance += win;
+        user.profit += win;
+        saveUser();
+        renderAll();
+        alert(`Watsinze ${win.toLocaleString()} RWF! 🎉`);
+        spinning = false;
+        document.getElementById('wheel').style.transform = 'rotate(0deg)';
+      }, 4200);
+    }
+
+    function copyRef() {
+      navigator.clipboard.writeText(user.refCode);
+      alert('Kode yakoporowe: ' + user.refCode);
+    }
+
+    function shareRef() {
+      const text = `Injira muri Enterprise Cars ukoresheje kode yanjye: ${user.refCode}\nhttps://enterprise-cars.app`;
+      if (navigator.share) navigator.share({ text });
+      else { navigator.clipboard.writeText(text); alert('Link yakoporowe!'); }
+    }
+
+    // ========== MODALS ==========
+    function openModal(type) {
+      const content = document.getElementById('modalContent');
+      if (type === 'deposit') {
+        content.innerHTML = `
+          <h3>⬇️ KWINJIZA AMAFARANGA</h3>
+          <p style="color:#94a3b8;font-size:13px;margin-bottom:12px">Min: 1,000 RWF</p>
+          <div class="amount-grid">
+            ${[10000,21000,92000,240000,500000].map(a => `
+              <div class="amount-btn" onclick="selectAmount(this,\( {a})"> \){a.toLocaleString()}</div>
+            `).join('')}
+          </div>
+          <input type="number" id="depAmount" class="text-input" style="width:100%;background:#12121a;border:1px solid #2a2a3a;border-radius:12px;padding:14px;color:#fff;margin:12px 0" placeholder="Andika amafaranga" value="10000" />
+          <button class="btn-primary" onclick="doDeposit()">KWISHYURA NONAHA</button>
+        `;
+      } else if (type === 'withdraw') {
+        content.innerHTML = `
+          <h3>⬆️ KUBIKUZA AMAFARANGA</h3>
+          <p style="color:#94a3b8;font-size:13px">Balance: <b>\( {user.balance.toLocaleString()} RWF</b> • Abikuza: <b> \){user.withdrawable.toLocaleString()} RWF</b></p>
+          <p style="color:#86efac;font-size:12px;margin:8px 0">Kubikuza bifunguye: Wednesday & Friday</p>
+          <div class="amount-grid">
+            ${[1000,5000,9000,16000,26000,50000,90000,210000].map(a => `
+              <div class="amount-btn" onclick="selectAmount(this,\( {a})"> \){a.toLocaleString()}<br><small style="color:#94a3b8">Net: ${Math.floor(a*0.9).toLocaleString()}</small></div>
+            `).join('')}
+          </div>
+          <input type="number" id="wdAmount" class="text-input" style="width:100%;background:#12121a;border:1px solid #2a2a3a;border-radius:12px;padding:14px;color:#fff;margin:12px 0" placeholder="Amafaranga" />
+          <input type="text" id="wdPhone" class="text-input" style="width:100%;background:#12121a;border:1px solid #2a2a3a;border-radius:12px;padding:14px;color:#fff;margin-bottom:12px" placeholder="Numero MTN/Airtel" value="${user.phone}" />
+          <button class="btn-primary" onclick="doWithdraw()">BIKUZA NONAHA</button>
+        `;
+      }
+      document.getElementById('modalOverlay').classList.remove('hidden');
+    }
+
+    function selectAmount(el, amount) {
+      document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
+      el.classList.add('selected');
+      const input = document.getElementById('depAmount') || document.getElementById('wdAmount');
+      if (input) input.value = amount;
+    }
+
+    function closeModal(e) {
+      if (e && e.target !== document.getElementById('modalOverlay') && !e.target.classList.contains('close-modal')) return;
+      document.getElementById('modalOverlay').classList.add('hidden');
+    }
+
+    function doDeposit() {
+      const amount = parseInt(document.getElementById('depAmount').value) || 0;
+      if (amount < 1000) { alert('Minimum 1,000 RWF'); return; }
+      user.balance += amount;
+      // first recharge unlocks bonus
+      if (user.balance === 1000 + amount) {
+        // already had 1000 bonus
+      }
+      saveUser();
+      renderAll();
+      closeModal();
+      alert('Amafaranga yinjiye! +' + amount.toLocaleString() + ' RWF');
+    }
+
+    function doWithdraw() {
+      const amount = parseInt(document.getElementById('wdAmount').value) || 0;
+      if (amount < 1000) { alert('Minimum 1,000 RWF'); return; }
+      if (amount > user.balance) { alert('Amafaranga ntahagije!'); return; }
+      // simulate 10% fee
+      const net = Math.floor(amount * 0.9);
+      user.balance -= amount;
+      saveUser();
+      renderAll();
+      closeModal();
+      alert(`Kubikuza byoherejwe!\nNet: ${net.toLocaleString()} RWF\n(Serivisi 10%)`);
+    }
+
+    function saveUser() {
+      localStorage.setItem('ec_user', JSON.stringify(user));
+      const users = JSON.parse(localStorage.getItem('ec_users') || '{}');
+      users[user.phone] = user;
+      localStorage.setItem('ec_users', JSON.stringify(users));
+    }
+
+    // start
+    init();
+  </script>
+</body>
+</html>
