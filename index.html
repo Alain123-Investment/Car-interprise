@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#0b0f1a">
 <meta name="google" content="notranslate">
-<title>BTG Pactual</title>
+<title>BDO Network Bank</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%234f6ef7'/%3E%3Cstop offset='1' stop-color='%237c5cfc'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cpath d='M14 40V24h8.5c5 0 8 2.4 8 6.2 0 2.4-1.3 4.3-3.5 5.2L32 40h-5.2l-4.2-4.3H19V40H14zm5-12.5v4.8h3.2c2.2 0 3.5-1 3.5-2.4S24.4 27.5 22.2 27.5H19zM34 40V24h9.5c6.2 0 10.2 3.6 10.2 8s-4 8-10.2 8H34zm5-12.5v9h4.5c3.5 0 5.5-1.8 5.5-4.5s-2-4.5-5.5-4.5H39z' fill='white'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f6ef7'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='28' font-weight='900' fill='white' font-family='system-ui'%3EB%3C/text%3E%3C/svg%3E">
 <style>
@@ -282,7 +282,7 @@ button,input,select{font:inherit;color:inherit}
   </div>
   <div class="brand">
     <div class="brandmark">B</div>
-    <h1>BTG Pactual</h1>
+    <h1>BDO Network Bank</h1>
     <p>Trade · Predict · Profit</p>
   </div>
   <div class="auth-join">
@@ -991,27 +991,25 @@ const COUNTRIES = [
 // Plans by account currency (set at registration from phone country)
 const PRODUCTS_BY_CURRENCY = {
   UGX: [
-    {id:1, name:"BTG Core",    min:50000,    max:200000,    rate:4.5, termDays:100, turns:1, icon:"BC"},
-    {id:2, name:"BTG Nova",    min:200001,   max:800000,    rate:4.8, termDays:180, turns:1, icon:"BN"},
-    {id:3, name:"BTG Vertex",  min:800001,   max:1500000,   rate:5.1, termDays:210, turns:1, icon:"BV"},
-    {id:4, name:"BTG Premium", min:1500001,  max:8000000,   rate:5.4, termDays:240, turns:1, icon:"BP"},
-    {id:5, name:"BTG Elite",   min:8000001,  max:15000000,  rate:6.0, termDays:360, turns:1, icon:"BE"}
+    {id:1, name:"BDO Core",    min:50000,    max:200000,    rate:4.5, termDays:100, turns:1, icon:"BC"},
+    {id:2, name:"BDO Nova",    min:200001,   max:800000,    rate:4.8, termDays:180, turns:1, icon:"BN"},
+    {id:3, name:"BDO Vertex",  min:800001,   max:1500000,   rate:5.1, termDays:210, turns:1, icon:"BV"},
+    {id:4, name:"BDO Premium", min:1500001,  max:8000000,   rate:5.4, termDays:240, turns:1, icon:"BP"},
+    {id:5, name:"BDO Elite",   min:8000001,  max:15000000,  rate:6.0, termDays:360, turns:1, icon:"BE"}
   ],
   RWF: [
-    {id:10, name:"BTG 1",      min:2000,     max:5000,      rate:14,  termDays:4,   turns:1, icon:"B1", shortTerm:true},
-    {id:11, name:"BTG 2",      min:5001,     max:10000,     rate:10,  termDays:3,   turns:1, icon:"B2", shortTerm:true},
-    {id:1,  name:"BTG Core",   min:18000,    max:200000,    rate:4.5, termDays:100, turns:1, icon:"BC"},
-    {id:2,  name:"BTG Nova",   min:200001,   max:800000,    rate:4.8, termDays:180, turns:1, icon:"BN"},
-    {id:3,  name:"BTG Vertex", min:800001,   max:1500000,   rate:5.1, termDays:210, turns:1, icon:"BV"},
-    {id:4,  name:"BTG Premium",min:1500001,  max:4000000,   rate:5.4, termDays:240, turns:1, icon:"BP"},
-    {id:5,  name:"BTG Elite",  min:4000001,  max:10000000,  rate:6.0, termDays:360, turns:1, icon:"BE"}
+    {id:1,  name:"BDO Core",   min:18000,    max:200000,    rate:4.5, termDays:100, turns:1, icon:"BC"},
+    {id:2,  name:"BDO Nova",   min:200001,   max:800000,    rate:4.8, termDays:180, turns:1, icon:"BN"},
+    {id:3,  name:"BDO Vertex", min:800001,   max:1500000,   rate:5.1, termDays:210, turns:1, icon:"BV"},
+    {id:4,  name:"BDO Premium",min:1500001,  max:4000000,   rate:5.4, termDays:240, turns:1, icon:"BP"},
+    {id:5,  name:"BDO Elite",  min:4000001,  max:10000000,  rate:6.0, termDays:360, turns:1, icon:"BE"}
   ],
   USD: [
-    {id:1, name:"BTG Core",    min:15,     max:300,     rate:4.5, termDays:100, turns:1, icon:"BC"},
-    {id:2, name:"BTG Nova",    min:301,    max:600,     rate:4.8, termDays:180, turns:1, icon:"BN"},
-    {id:3, name:"BTG Vertex",  min:601,    max:3000,    rate:5.1, termDays:210, turns:1, icon:"BV"},
-    {id:4, name:"BTG Premium", min:3001,   max:20000,   rate:5.4, termDays:240, turns:1, icon:"BP"},
-    {id:5, name:"BTG Elite",   min:20001,  max:400000,  rate:6.0, termDays:360, turns:1, icon:"BE"}
+    {id:1, name:"BDO Core",    min:15,     max:300,     rate:4.5, termDays:100, turns:1, icon:"BC"},
+    {id:2, name:"BDO Nova",    min:301,    max:600,     rate:4.8, termDays:180, turns:1, icon:"BN"},
+    {id:3, name:"BDO Vertex",  min:601,    max:3000,    rate:5.1, termDays:210, turns:1, icon:"BV"},
+    {id:4, name:"BDO Premium", min:3001,   max:20000,   rate:5.4, termDays:240, turns:1, icon:"BP"},
+    {id:5, name:"BDO Elite",   min:20001,  max:400000,  rate:6.0, termDays:360, turns:1, icon:"BE"}
   ]
 };
 function getUserCurrency(){
