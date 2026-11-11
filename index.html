@@ -3,29 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<meta name="theme-color" content="#0b0f1a">
+<meta name="theme-color" content="#1a1208">
 <meta name="google" content="notranslate">
 <title>BDO Network Bank</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%234f6ef7'/%3E%3Cstop offset='1' stop-color='%237c5cfc'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cpath d='M14 40V24h8.5c5 0 8 2.4 8 6.2 0 2.4-1.3 4.3-3.5 5.2L32 40h-5.2l-4.2-4.3H19V40H14zm5-12.5v4.8h3.2c2.2 0 3.5-1 3.5-2.4S24.4 27.5 22.2 27.5H19zM34 40V24h9.5c6.2 0 10.2 3.6 10.2 8s-4 8-10.2 8H34zm5-12.5v9h4.5c3.5 0 5.5-1.8 5.5-4.5s-2-4.5-5.5-4.5H39z' fill='white'/%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f6ef7'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='28' font-weight='900' fill='white' font-family='system-ui'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23f59e0b'/%3E%3Cstop offset='1' stop-color='%23ea580c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-size='34' font-weight='900' fill='white' font-family='system-ui,Arial,sans-serif'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23f59e0b'/%3E%3Cstop offset='1' stop-color='%23ea580c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-size='34' font-weight='900' fill='white' font-family='system-ui,Arial,sans-serif'%3EB%3C/text%3E%3C/svg%3E">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
-  --bg:#0b0f1a;--card:#141a28;--card2:#1a2235;--ink:#e8ecf4;--muted:#8b95a8;
-  --blue:#4f6ef7;--blue2:#6b8aff;--purple:#7c5cfc;--green:#22c55e;--red:#ef4444;
-  --line:#1e2738;--gold:#f59e0b;--input:#0f1522;
+  --bg:#0f0c08;--card:#1a1410;--card2:#221a12;--ink:#f5efe6;--muted:#a89a88;
+  --blue:#f59e0b;--blue2:#fbbf24;--purple:#ea580c;--green:#22c55e;--red:#ef4444;
+  --line:#2a2218;--gold:#fbbf24;--input:#140f0a;
 }
 body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;min-height:100vh;overflow-x:hidden}
 button,input,select{font:inherit;color:inherit}
 .hidden{display:none!important}
 .page{display:none}.page.active{display:block}
 
-.auth{min-height:100vh;padding:28px 18px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at top,#1a2744 0%,#0b0f1a 70%)}
+.auth{min-height:100vh;padding:28px 18px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at top,#2a1a0a 0%,#0f0c08 70%)}
 .authbox{width:100%;max-width:420px;background:var(--card);border-radius:22px;padding:26px 22px;border:1px solid var(--line);box-shadow:0 20px 60px #0008;position:relative}
 .lang-bar{position:absolute;top:12px;right:12px;z-index:2}
 .lang-bar select{background:var(--input);border:1px solid var(--line);color:var(--ink);padding:6px 8px;border-radius:8px;font-size:11px;font-weight:600}
 .brand{text-align:center;margin-bottom:22px}
-.brandmark{width:58px;height:58px;border-radius:16px;margin:0 auto 12px;background:linear-gradient(145deg,#4f6ef7,#7c5cfc);color:#fff;display:grid;place-items:center;font-weight:900;font-size:22px}
+.brandmark{width:58px;height:58px;border-radius:16px;margin:0 auto 12px;background:linear-gradient(145deg,#f59e0b,#ea580c);color:#fff;display:grid;place-items:center;font-weight:900;font-size:22px}
 .brand h1{font-size:22px;font-weight:800}
 .brand p{color:var(--muted);font-size:12px;margin-top:4px}
 .tabs{display:flex;background:var(--input);padding:4px;border-radius:12px;margin-bottom:20px}
@@ -48,9 +48,9 @@ button,input,select{font:inherit;color:inherit}
 .hint{font-size:11px;color:var(--muted);margin-top:8px;text-align:center;line-height:1.4}
 
 .app{min-height:100vh;padding-bottom:76px;background:var(--bg)}
-.topbar{position:sticky;top:0;z-index:40;background:rgba(11,15,26,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+.topbar{position:sticky;top:0;z-index:40;background:rgba(15,12,8,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
 .topbar .logo{display:flex;align-items:center;gap:10px;cursor:pointer}
-.topbar .logo-icon{width:34px;height:34px;border-radius:10px;background:linear-gradient(145deg,#4f6ef7,#7c5cfc);display:grid;place-items:center;font-weight:900;font-size:14px;color:#fff}
+.topbar .logo-icon{width:34px;height:34px;border-radius:10px;background:linear-gradient(145deg,#f59e0b,#ea580c);display:grid;place-items:center;font-weight:900;font-size:14px;color:#fff}
 .topbar .logo-text{font-size:14px;font-weight:800}
 .topbar .logo-sub{font-size:9px;color:var(--muted);font-weight:500;letter-spacing:.4px}
 .top-right{display:flex;align-items:center;gap:8px}
@@ -59,10 +59,10 @@ button,input,select{font:inherit;color:inherit}
 
 .container{padding:14px 15px 20px}
 
-.hero-card{background:linear-gradient(145deg,#151d32,#1a2440);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px}
+.hero-card{background:linear-gradient(145deg,#1a140c,#241a10);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px}
 .hero-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
 .hero-balance{font-size:34px;font-weight:900;margin:6px 0 2px;letter-spacing:-1px}
-.hero-today{display:inline-block;background:#1a2e22;color:var(--green);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:14px}
+.hero-today{display:inline-block;background:#1a2a18;color:var(--green);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:14px}
 .hero-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding-top:12px;border-top:1px solid var(--line)}
 .hero-stat span{display:block;font-size:10px;color:var(--muted);margin-bottom:2px}
 .hero-stat b{font-size:14px;font-weight:800}
@@ -90,7 +90,7 @@ button,input,select{font:inherit;color:inherit}
 .active-box a{color:var(--blue2);font-weight:600;cursor:pointer}
 
 .tg-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:12px;display:flex;gap:12px;align-items:center}
-.tg-card .tg-icon{width:42px;height:42px;border-radius:12px;background:#1a2744;display:grid;place-items:center;font-size:20px;flex-shrink:0}
+.tg-card .tg-icon{width:42px;height:42px;border-radius:12px;background:#2a1a0a;display:grid;place-items:center;font-size:20px;flex-shrink:0}
 .tg-card h4{font-size:13px;font-weight:700}
 .tg-card p{font-size:11px;color:var(--muted);margin-top:2px}
 .tg-card a{font-size:12px;color:var(--blue2);font-weight:600;text-decoration:none}
@@ -136,13 +136,13 @@ button,input,select{font:inherit;color:inherit}
 .news-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
 .news-item:last-child{border:0;padding-bottom:0}
 .news-tag{flex-shrink:0;width:42px;height:28px;border-radius:8px;display:grid;place-items:center;font-size:10px;font-weight:800;color:#fff}
-.news-tag.btc{background:#f7931a}.news-tag.eth{background:#627eea}.news-tag.macro{background:#6366f1}
+.news-tag.btc{background:#f7931a}.news-tag.eth{background:#fb923c}.news-tag.macro{background:#ea580c}
 .news-item p{font-size:12px;font-weight:600;line-height:1.35}
 .news-item small{font-size:10px;color:var(--muted)}
 
 .plan-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}
 .plan-top{display:flex;align-items:flex-start;gap:12px}
-.plan-icon{width:46px;height:46px;border-radius:12px;background:linear-gradient(145deg,#4f6ef7,#7c5cfc);display:grid;place-items:center;font-weight:900;font-size:13px;color:#fff;flex-shrink:0}
+.plan-icon{width:46px;height:46px;border-radius:12px;background:linear-gradient(145deg,#f59e0b,#ea580c);display:grid;place-items:center;font-weight:900;font-size:13px;color:#fff;flex-shrink:0}
 .plan-info h3{font-size:15px;font-weight:800}
 .plan-info p{font-size:11px;color:var(--muted);margin-top:2px}
 .plan-target{margin-left:auto;text-align:right}
@@ -156,12 +156,12 @@ button,input,select{font:inherit;color:inherit}
 .plan-buy input{flex:1;border:1px solid var(--line);background:var(--input);padding:11px 12px;border-radius:11px;outline:none;color:var(--ink);font-size:14px;font-weight:700}
 .plan-buy button{border:0;background:var(--blue);color:#fff;padding:11px 18px;border-radius:11px;font-weight:800;font-size:13px;cursor:pointer;white-space:nowrap}
 
-.ref-card{background:linear-gradient(145deg,#151d32,#1a2440);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px}
+.ref-card{background:linear-gradient(145deg,#1a140c,#241a10);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px}
 .ref-card .label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
 .ref-code{font-size:28px;font-weight:900;letter-spacing:3px;margin:8px 0 12px;text-align:center}
 .ref-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .ref-actions button{border:0;padding:11px;border-radius:11px;font-weight:800;font-size:13px;cursor:pointer}
-.btn-copy{background:#fff;color:#0b0f1a}
+.btn-copy{background:#fff;color:#1a1208}
 .btn-share{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25)!important}
 .team-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:14px 0}
 .team-stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}
@@ -184,7 +184,7 @@ button,input,select{font:inherit;color:inherit}
 .members-box h4{font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;margin-bottom:8px;display:flex;justify-content:space-between}
 
 .profile-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;text-align:center;margin-bottom:14px}
-.avatar-big{width:64px;height:64px;border-radius:50%;background:linear-gradient(145deg,#4f6ef7,#7c5cfc);color:#fff;display:grid;place-items:center;margin:0 auto 10px;font-size:26px;font-weight:900}
+.avatar-big{width:64px;height:64px;border-radius:50%;background:linear-gradient(145deg,#f59e0b,#ea580c);color:#fff;display:grid;place-items:center;margin:0 auto 10px;font-size:26px;font-weight:900}
 .profile-card h3{font-size:17px;font-weight:800}
 .profile-card p{font-size:12px;color:var(--muted);margin-top:3px}
 .detail-list{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:12px}
@@ -244,7 +244,7 @@ button,input,select{font:inherit;color:inherit}
 .how-step{display:flex;gap:10px;margin-bottom:10px;font-size:12px;line-height:1.45;color:var(--muted)}
 .how-step .num{width:22px;height:22px;border-radius:50%;background:var(--input);border:1px solid var(--line);display:grid;place-items:center;font-size:11px;font-weight:800;color:var(--blue2);flex-shrink:0}
 
-.bottom{position:fixed;bottom:0;left:0;right:0;height:68px;background:rgba(14,18,30,.97);backdrop-filter:blur(14px);border-top:1px solid var(--line);display:flex;z-index:50;padding-bottom:env(safe-area-inset-bottom)}
+.bottom{position:fixed;bottom:0;left:0;right:0;height:68px;background:rgba(18,14,10,.97);backdrop-filter:blur(14px);border-top:1px solid var(--line);display:flex;z-index:50;padding-bottom:env(safe-area-inset-bottom)}
 .nav{flex:1;text-align:center;padding-top:8px;color:#5a6577;font-size:10px;font-weight:700;cursor:pointer}
 .nav .ni{font-size:20px;display:block;margin-bottom:2px;line-height:1}
 .nav.active{color:var(--blue2)}
@@ -281,7 +281,17 @@ button,input,select{font:inherit;color:inherit}
     </select>
   </div>
   <div class="brand">
-    <div class="brandmark">B</div>
+    <div class="brandmark" style="background:linear-gradient(145deg,#f59e0b,#ea580c);box-shadow:0 8px 24px #f59e0b44;position:relative;overflow:hidden">
+      <svg viewBox="0 0 48 48" width="36" height="36" aria-hidden="true">
+        <defs>
+          <linearGradient id="bdog" x1="0" y1="0" x2="1" y2="1">
+            <stop stop-color="#fff" stop-opacity="1"/>
+            <stop offset="1" stop-color="#fff" stop-opacity=".9"/>
+          </linearGradient>
+        </defs>
+        <path fill="url(#bdog)" d="M14 12h12.5c5.2 0 9 2.8 9 7.2 0 2.8-1.4 5-3.8 6.2 3.1 1.1 5 3.6 5 7 0 5-4 8.6-10.2 8.6H14V12zm5.2 4.6v6.8h6.8c2.6 0 4.2-1.2 4.2-3.4s-1.6-3.4-4.2-3.4h-6.8zm0 11.2v7.6h8c3 0 4.8-1.5 4.8-3.8s-1.8-3.8-4.8-3.8h-8z"/>
+      </svg>
+    </div>
     <h1>BDO Network Bank</h1>
     <p>Trade · Predict · Profit</p>
   </div>
@@ -357,9 +367,11 @@ button,input,select{font:inherit;color:inherit}
 <div id="app" class="app hidden">
   <div class="topbar">
     <div class="logo" onclick="go('home')">
-      <div class="logo-icon">B</div>
+      <div class="logo-icon" style="background:linear-gradient(145deg,#f59e0b,#ea580c)">
+        <svg viewBox="0 0 48 48" width="18" height="18" aria-hidden="true"><path fill="#fff" d="M14 12h12.5c5.2 0 9 2.8 9 7.2 0 2.8-1.4 5-3.8 6.2 3.1 1.1 5 3.6 5 7 0 5-4 8.6-10.2 8.6H14V12zm5.2 4.6v6.8h6.8c2.6 0 4.2-1.2 4.2-3.4s-1.6-3.4-4.2-3.4h-6.8zm0 11.2v7.6h8c3 0 4.8-1.5 4.8-3.8s-1.8-3.8-4.8-3.8h-8z"/></svg>
+      </div>
       <div>
-        <div class="logo-text">BTG Pactual</div>
+        <div class="logo-text">BDO Network Bank</div>
         <div class="logo-sub">TRADE · PREDICT · PROFIT</div>
       </div>
     </div>
@@ -388,15 +400,15 @@ button,input,select{font:inherit;color:inherit}
       </div>
       <div class="quick-grid">
         <div class="quick" onclick="go('plans')">
-          <span class="qi qi-svg"><svg viewBox="0 0 24 24" fill="none" stroke="#4f6ef7" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="11" width="7" height="10" rx="1.5"/><rect x="3" y="15" width="7" height="6" rx="1.5"/></svg></span>
+          <span class="qi qi-svg"><svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="11" width="7" height="10" rx="1.5"/><rect x="3" y="15" width="7" height="6" rx="1.5"/></svg></span>
           <span>Plans</span><small>Browse plans</small>
         </div>
         <div class="quick" onclick="go('team')">
-          <span class="qi qi-svg"><svg viewBox="0 0 24 24" fill="none" stroke="#6b8aff" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><circle cx="16" cy="9" r="2.5"/><path d="M2.5 19c0-3 2.8-5 6.5-5s6.5 2 6.5 5"/><path d="M15 14.5c2.8.3 5 2 5 4.5"/></svg></span>
+          <span class="qi qi-svg"><svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><circle cx="16" cy="9" r="2.5"/><path d="M2.5 19c0-3 2.8-5 6.5-5s6.5 2 6.5 5"/><path d="M15 14.5c2.8.3 5 2 5 4.5"/></svg></span>
           <span>Team</span><small id="quickTeam">0 referrals</small>
         </div>
         <div class="quick" onclick="go('profile')">
-          <span class="qi qi-svg"><svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.5 3.5-6 8-6s8 2.5 8 6"/></svg></span>
+          <span class="qi qi-svg"><svg viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.5 3.5-6 8-6s8 2.5 8 6"/></svg></span>
           <span>Profile</span><small>Settings</small>
         </div>
         <div class="quick" onclick="go('records')">
@@ -1059,13 +1071,13 @@ const PAY_METHODS = [
   ]},
   {section:"BEP20 / BNB CHAIN", items:[
     {id:"usdt_bep20", name:"USDT (BEP20)", network:"BEP20 · BNB Smart Chain", icon:"USDT", color:"#26a17b", textColor:"#fff",
-     address:"0x9d6d8b992f562d5B9cc624266D925Ed803ef6588", holder:"BTG Pactual", type:"crypto"},
+     address:"0x9d6d8b992f562d5B9cc624266D925Ed803ef6588", holder:"BDO Network Bank", type:"crypto"},
     {id:"bnb_bep20", name:"BNB (BEP20)", network:"BEP20 · BNB Smart Chain", icon:"BNB", color:"#f3ba2f", textColor:"#000",
-     address:"0x9d6d8b992f562d5B9cc624266D925Ed803ef6588", holder:"BTG Pactual", type:"crypto"}
+     address:"0x9d6d8b992f562d5B9cc624266D925Ed803ef6588", holder:"BDO Network Bank", type:"crypto"}
   ]},
   {section:"SOLANA NETWORK", items:[
     {id:"usdc_sol", name:"USD Coin (USDC)", network:"Solana Network", icon:"USDC", color:"#2775ca", textColor:"#fff",
-     address:"Dukf9zJFdFUvk8ZNCwFhWeJyN1ydn1WR9FVE19eXgj8J", holder:"BTG Pactual", type:"crypto"}
+     address:"Dukf9zJFdFUvk8ZNCwFhWeJyN1ydn1WR9FVE19eXgj8J", holder:"BDO Network Bank", type:"crypto"}
   ]}
 ];
 const FX_RATES = { RWF: 1450, UGX: 3750 }; // approx USD rates
@@ -1590,932 +1602,5 @@ function go(page, replace){
     const depP = document.querySelector("#deposit > .container > p");
     if(depP) depP.textContent = money(getMinDeposit())+" minimum · pick a method, then enter an amount";
   }
-  if(page === "plans") renderProducts();
-  if(page === "depositDetail") renderDepositDetail();
-  if(page === "withdrawDetail") renderWithdrawDetail();
-  if(page === "team") loadTeamMembers();
-  render();
-  creditDailyProfits();
-}
-
-window.addEventListener("popstate", (e) => {
-  const page = (e.state && e.state.page) || location.hash.replace("#/","") || "home";
-  go(page, true);
-});
-
-function render(){
-  if(!user) return;
-  document.getElementById("balance").textContent = money(user.balance);
-  const _cur = getUserCurrency();
-  document.getElementById("topBal").textContent = _cur === "USD"
-    ? ("USD " + Number(user.balance||0).toFixed(2))
-    : money(user.balance, _cur);
-  document.getElementById("withdrawable").textContent = money(user.withdrawable);
-  // locked welcome bonus stays in system; no on-screen notice
-
-  document.getElementById("invested").textContent = money(user.invested);
-  document.getElementById("totalGain").textContent = money(user.gain);
-  document.getElementById("todayGain").textContent = "+" + money(user.gain) + " " + t("today");
-
-  document.getElementById("profileName").textContent = user.name;
-  document.getElementById("profilePhone").textContent = user.phone;
-  document.getElementById("bigAvatar").textContent = (user.name||"B").charAt(0).toUpperCase();
-  document.getElementById("detailName").textContent = user.name;
-  document.getElementById("detailPhone").textContent = user.phone;
-  document.getElementById("detailRef").textContent = user.refCode;
-  document.getElementById("detailSince").textContent = user.created ? new Date(user.created).toLocaleDateString("en-GB") : "—";
-
-  document.getElementById("refCode").textContent = user.refCode;
-  document.getElementById("teamInvited").textContent = user.team || 0;
-  document.getElementById("teamValid").textContent = user.team || 0;
-  document.getElementById("teamPending").textContent = 0;
-  document.getElementById("l1count").textContent = user.team || 0;
-  document.getElementById("refBonus").textContent = money(user.refBonus||0);
-  document.getElementById("totalComm").textContent = money(user.refBonus||0);
-  document.getElementById("todayComm").textContent = "$0.00";
-  document.getElementById("quickTeam").textContent = (user.team||0) + " " + (currentLang==="en" ? "referrals" : t("members"));
-  document.getElementById("quickRec").textContent = ((user.history||[]).length) + " " + t("records");
-  document.getElementById("l1membersCount").textContent = (user.team||0) + " " + t("members");
-
-  const active = (user.portfolio||[]).filter(p => p.status==="Active"||p.status==="Ikora");
-  const box = document.getElementById("activePreview");
-  if(active.length){
-    box.innerHTML = active.slice(0,3).map(p =>
-      `<div style="text-align:left;padding:8px 0;border-bottom:1px solid var(--line)"><b>${p.name}</b> · ${money(p.amount)} · <span style="color:var(--green)">${p.rate||""}% daily</span></div>`
-    ).join("") + (active.length>3 ? `<div style="margin-top:8px"><a onclick="go('active')">View all ${active.length} plans</a></div>` : "");
-  } else {
-    box.innerHTML = `${t("noActive")} <a onclick="go('plans')">${t("browse")}</a> ${t("browseToStart")}`;
-  }
-
-  renderPortfolio();
-  renderHistory();
-}
-
-function localizedEnds(){const m={en:"Ends",fr:"Fin",rw:"Birangira",sw:"Inaisha",ar:"ينتهي",zh:"结束",de:"Endet",es:"Termina",pt:"Termina"};return m[currentLang]||m.en;}
-function localizedPlanDesc(turns){
-  const n=Number(turns)||1;
-  const phrases={
-    en:`${n} ${n===1?"bot turn":"bot turns"} a day · automatic`,
-    fr:`${n} cycle${n>1?"s":""} par jour · automatique`,
-    rw:`Inshuro ${n} ku munsi · byikora`,
-    sw:`Mizunguko ${n} kwa siku · otomatiki`,
-    ar:`${n} ${n===1?"دورة":"دورات"} يوميًا · تلقائي`,
-    zh:`每天 ${n} 次 · 自动`,
-    de:`${n} ${n===1?"Durchlauf":"Durchläufe"} täglich · automatisch`,
-    es:`${n} ${n===1?"ciclo":"ciclos"} al día · automático`,
-    pt:`${n} ${n===1?"ciclo":"ciclos"} por dia · automático`
-  };
-  return phrases[currentLang]||phrases.en;
-}
-function renderProducts(){
-  const box = document.getElementById("products");
-  if(!box) return;
-  box.innerHTML = getProducts().map(p => `
-    <div class="plan-card">
-      <div class="plan-top">
-        <div class="plan-icon">${p.icon}</div>
-        <div class="plan-info"><h3>${p.name}</h3><p>${money(p.min)} – ${money(p.max)}</p></div>
-        <div class="plan-target"><div class="pct">${p.rate}%</div><small>${t("dailyTarget")}</small></div>
-      </div>
-      <div class="plan-meta">${p.termDays||100} days · ${p.rate}% daily</div>
-      <div class="ref-comm">
-        <span>L1 <b>13%</b></span><span>L2 <b>2%</b></span><span>L3 <b>1%</b></span>
-      </div>
-      <div class="plan-buy">
-        <input type="number" id="amt-${p.id}" value="${p.min}" min="${p.min}" max="${p.max}" step="1" aria-label="${p.name} amount">
-        <button onclick="invest(${p.id})">${t("purchase")}</button>
-      </div>
-    </div>
-  `).join("");
-}
-
-
-
-async function loadTeamMembers(){
-  const box = document.getElementById("l1membersList");
-  if(!box || !user || !window.firebaseAPI) return;
-  try{
-    const {collection,query,where,getDocs} = window.firebaseAPI;
-    const q = query(collection(window.firebaseDB,"users"), where("referredBy","==", user.refCode));
-    const snap = await getDocs(q);
-    const members = snap.docs.map(d => ({id:d.id, ...d.data()}));
-    document.getElementById("l1count").innerHTML = members.length + "<small>valid</small>";
-    document.getElementById("l1membersCount").textContent = members.length + " members";
-    document.getElementById("teamInvited").textContent = members.length;
-    document.getElementById("teamValid").textContent = members.length;
-    if(!members.length){
-      box.innerHTML = '<p style="font-size:12px;color:var(--muted);padding:8px 0">No members at this level yet. Share your referral code to grow it.</p>';
-    } else {
-      box.innerHTML = members.map(m => `
-        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px">
-          <div><b>${m.name||"User"}</b><div style="font-size:11px;color:var(--muted)">${m.phone||""}</div></div>
-          <div style="text-align:right;font-size:11px;color:var(--muted)">${m.created?new Date(m.created).toLocaleDateString("en-GB"):""}<div>${t("invested")}: ${money(m.invested||0, detectCurrency(m))}</div></div>
-        </div>
-      `).join("");
-    }
-    // L2 / L3 counts: people referred by L1 members
-    let l2 = 0, l3 = 0;
-    for(const m of members){
-      if(!m.refCode) continue;
-      const q2 = query(collection(window.firebaseDB,"users"), where("referredBy","==", m.refCode));
-      const s2 = await getDocs(q2);
-      l2 += s2.size;
-      for(const d2 of s2.docs){
-        const m2 = d2.data();
-        if(m2.refCode){
-          const q3 = query(collection(window.firebaseDB,"users"), where("referredBy","==", m2.refCode));
-          const s3 = await getDocs(q3);
-          l3 += s3.size;
-        }
-      }
-    }
-    const l2el = document.getElementById("l2count");
-    const l3el = document.getElementById("l3count");
-    if(l2el) l2el.innerHTML = l2 + "<small>valid</small>";
-    if(l3el) l3el.innerHTML = l3 + "<small>valid</small>";
-  }catch(err){
-    console.warn("loadTeamMembers", err);
-    box.innerHTML = '<p style="font-size:12px;color:var(--muted);padding:8px 0">Could not load members.</p>';
-  }
-}
-
-/** Convert amount between USD / RWF / UGX using FX_RATES (units per 1 USD). */
-function convertCurrency(amount, fromCur, toCur){
-  amount = Number(amount)||0;
-  fromCur = String(fromCur || "USD").toUpperCase();
-  toCur = String(toCur || "USD").toUpperCase();
-  if(fromCur === toCur || amount === 0) return amount;
-  // Normalize aliases
-  if(fromCur === "RW" || fromCur === "FRW") fromCur = "RWF";
-  if(toCur === "RW" || toCur === "FRW") toCur = "RWF";
-  if(fromCur === "UG") fromCur = "UGX";
-  if(toCur === "UG") toCur = "UGX";
-  // to USD first
-  let usd = amount;
-  if(fromCur === "RWF") usd = amount / (FX_RATES.RWF || 1450);
-  else if(fromCur === "UGX") usd = amount / (FX_RATES.UGX || 3750);
-  else usd = amount; // already USD
-  // from USD to target
-  if(toCur === "USD") return Math.round(usd * 100) / 100;
-  if(toCur === "RWF") return Math.round(usd * (FX_RATES.RWF || 1450));
-  if(toCur === "UGX") return Math.round(usd * (FX_RATES.UGX || 3750));
-  return Math.round(usd * 100) / 100;
-}
-function detectCurrency(u){
-  if(!u) return "USD";
-  const c = String(u.currency || "").toUpperCase().trim();
-  if(c === "RWF" || c === "RW" || c === "FRW") return "RWF";
-  if(c === "UGX" || c === "UG") return "UGX";
-  if(c === "USD" || c === "US$") return "USD";
-  // fallback from phone / id
-  const ph = String(u.phone || u.id || "").replace(/\s/g,"");
-  if(ph.startsWith("+250") || ph.startsWith("250")) return "RWF";
-  if(ph.startsWith("+256") || ph.startsWith("256")) return "UGX";
-  if(u.countryCode){
-    const cc = String(u.countryCode);
-    if(cc.includes("250")) return "RWF";
-    if(cc.includes("256")) return "UGX";
-  }
-  return "USD";
-}
-function getWelcomeBonusAmount(currency){
-  if(currency === "RWF") return 2000;
-  if(currency === "UGX") return 5000;
-  return 0; // no welcome bonus for USD
-}
-function isCoreOrHigherPlan(p){
-  // BTG 1 / BTG 2 are shortTerm — do NOT unlock welcome bonus
-  if(!p) return false;
-  if(p.shortTerm) return false;
-  const id = Number(p.id);
-  // Core and above use ids 1-5 (not 10, 11)
-  return id >= 1 && id <= 5;
-}
-
-async function payReferralCommission(investorPhone, amount, amountCurrency){
-  // Commission ALWAYS calculated on the investor's real amount+currency, then converted to each upline currency.
-  // Example: RWF 15,000 invest → L1 13% = 1,950 RWF → if upline is USD → ~$1.34 (never $1,950).
-  try{
-    const api = window.firebaseAPI;
-    if(!api || !window.firebaseDB){ console.warn("payRef: no api"); return; }
-    amount = Number(amount)||0;
-    if(amount <= 0) return;
-    const investor = await getUserFromFirestore(investorPhone);
-    if(!investor){ console.warn("payRef: investor not found", investorPhone); return; }
-    if(!investor.referredBy){ console.warn("payRef: no referredBy"); return; }
-
-    // Prefer explicit currency from invest call, then profile, then phone detection
-    const invCur = detectCurrency({
-      currency: amountCurrency || investor.currency,
-      phone: investor.phone || investorPhone,
-      countryCode: investor.countryCode,
-      id: investorPhone
-    });
-    const pctRates = [0.13, 0.02, 0.01]; // L1 13%, L2 2%, L3 1%
-    let currentRef = String(investor.referredBy).trim().toUpperCase();
-    let fromName = investor.name || investorPhone;
-
-    for(let level = 0; level < 3; level++){
-      if(!currentRef) break;
-      const upline = await findUserByRefCode(currentRef);
-      if(!upline){ console.warn("payRef: L"+(level+1)+" not found for", currentRef); break; }
-      const docId = upline.id || upline.phone;
-      if(!docId){ console.warn("payRef: no doc id"); break; }
-
-      // ALWAYS compute commission in the INVESTOR currency first
-      let commissionInInvestorCur = amount * pctRates[level];
-      if(invCur === "USD") commissionInInvestorCur = Math.round(commissionInInvestorCur * 100) / 100;
-      else commissionInInvestorCur = Math.round(commissionInInvestorCur);
-      if(commissionInInvestorCur <= 0) break;
-
-      // re-read fresh upline
-      const freshSnap = await api.getDoc(api.doc(window.firebaseDB, "users", docId));
-      if(!freshSnap.exists()) break;
-      const u = freshSnap.data();
-      const upCur = detectCurrency({ ...u, phone: u.phone || docId, id: docId });
-
-      // Convert investor-currency commission → upline currency
-      let commission = convertCurrency(commissionInInvestorCur, invCur, upCur);
-      if(upCur === "USD") commission = Math.round(commission * 100) / 100;
-      else commission = Math.round(commission);
-      if(commission <= 0) {
-        currentRef = u.referredBy ? String(u.referredBy).trim().toUpperCase() : null;
-        continue;
-      }
-
-      const newBal = Number(u.balance||0) + commission;
-      const newWd = Number(u.withdrawable||0) + commission;
-      const newBonus = Number(u.refBonus||0) + commission;
-      const hist = Array.isArray(u.history) ? u.history.slice() : [];
-      const detailBase = (pctRates[level]*100) + "% of " + amount.toLocaleString() + " " + invCur + " from " + fromName;
-      const detail = invCur === upCur
-        ? detailBase
-        : detailBase + " → paid " + commission.toLocaleString() + " " + upCur;
-      hist.unshift({
-        type: "Referral L"+(level+1),
-        amount: commission,
-        currency: upCur,
-        sourceAmount: amount,
-        sourceCurrency: invCur,
-        commissionSource: commissionInInvestorCur,
-        detail: detail,
-        date: Date.now(),
-        status: "Byemewe"
-      });
-      await api.setDoc(api.doc(window.firebaseDB, "users", docId), {
-        balance: newBal,
-        withdrawable: newWd,
-        refBonus: newBonus,
-        history: hist,
-        updatedAt: Date.now()
-      }, {merge:true});
-      console.log("payRef: L"+(level+1), docId, "+", commission, upCur, "(from", commissionInInvestorCur, invCur + ")");
-      currentRef = u.referredBy ? String(u.referredBy).trim().toUpperCase() : null;
-    }
-  }catch(err){
-    console.error("payReferralCommission ERROR", err);
-  }
-}
-
-async function invest(id){
-  const p = getProducts().find(x => x.id===id);
-  if(!p) return;
-  let amount = Number(document.getElementById("amt-"+id)?.value || p.min);
-  if(!amount || amount < p.min){ alert(t("minimum")+" "+money(p.min)); return }
-  if(amount > p.max){ alert(t("maximum")+" "+money(p.max)); return }
-  if(amount > Number(user.balance||0)){ alert(t("insufficient")); return }
-
-  // Welcome bonus (locked) can ONLY be used on BTG Core and higher — not BTG 1 / BTG 2
-  const locked = (!user.welcomeUnlocked) ? Number(user.lockedBonus||0) : 0;
-  const freeBal = Math.max(0, Number(user.balance||0) - locked);
-  if(!isCoreOrHigherPlan(p) && amount > freeBal){
-    alert(currentLang==="rw"
-      ? ("Welcome bonus ntikoreshwa kuri "+p.name+". Gura BTG Core cyangwa hejuru, cyangwa ubitse kugeza "+money(amount - freeBal)+" (bonus ifunze: "+money(locked)+").")
-      : ("Welcome bonus cannot be used on "+p.name+". Use BTG Core or higher, or deposit "+money(amount - freeBal)+" more (locked bonus: "+money(locked)+")."));
-    return;
-  }
-
-  const cur = getUserCurrency();
-  user.balance = Number(user.balance) - amount;
-  // If spending locked portion on Core+, reduce lockedBonus by amount used from locked
-  if(isCoreOrHigherPlan(p) && locked > 0){
-    const usedFromLocked = Math.min(locked, amount);
-    user.lockedBonus = Math.max(0, locked - usedFromLocked);
-  }
-  user.invested = Number(user.invested||0) + amount;
-  user.portfolio = user.portfolio || [];
-  user.portfolio.push({
-    id:p.id, name:p.name, amount, rate:p.rate, currency: cur,
-    start:Date.now(), termDays: Number(p.termDays)||100, status:"Active", turns:p.turns||1, lastCredit:Date.now()
-  });
-  user.history = user.history || [];
-  user.history.unshift({
-    type:"Plan Purchase", amount, currency: cur,
-    detail:p.name+" · "+p.rate+"% daily",
-    date:Date.now(), status:"Byemewe"
-  });
-
-  // Unlock welcome bonus only after investing in BTG Core or higher (not BTG 1 / BTG 2)
-  if(isCoreOrHigherPlan(p) && Number(user.lockedBonus||0) > 0 && !user.welcomeUnlocked){
-    // Bonus was already part of balance; once Core+ is bought it becomes withdrawable (if still in balance)
-    // lockedBonus only blocks withdraw — unlock it now
-    const locked = Number(user.lockedBonus||0);
-    user.lockedBonus = 0;
-    user.welcomeUnlocked = true;
-    // If user still has the bonus amount sitting in balance (didn't fully spend it), it is now free to withdraw
-    // We do NOT re-add money — just remove the lock so existing withdrawable + future profits work normally.
-    // Additionally credit leftover locked portion into withdrawable only if balance still covers it after this invest.
-    const leftover = Math.max(0, Math.min(locked, Number(user.balance||0)));
-    if(leftover > 0){
-      user.withdrawable = Number(user.withdrawable||0) + leftover;
-    }
-    user.history.unshift({
-      type:"Welcome Unlock", amount: locked, currency: cur,
-      detail:"Welcome bonus unlocked after "+p.name,
-      date:Date.now(), status:"Byemewe"
-    });
-  }
-
-  try{
-    await save();
-    // Pass investor currency explicitly so USD uplines never treat RWF/UGX as dollars
-    await payReferralCommission(user.phone, amount, cur);
-    await syncUserFromFirestore();
-    render();
-    showFeedback(t("planActivated"));
-    go("active");
-  }catch(err){ showSyncError(err); await syncUserFromFirestore(); render(); }
-}
-
-function filterPort(f, btn){
-  portFilter = f;
-  document.querySelectorAll(".filter-tabs button").forEach(b => b.classList.remove("active"));
-  if(btn) btn.classList.add("active");
-  renderPortfolio();
-}
-
-function renderPortfolio(){
-  const box = document.getElementById("portfolioList");
-  if(!box) return;
-  let list = user.portfolio || [];
-  if(portFilter==="active") list = list.filter(p => p.status==="Active"||p.status==="Ikora");
-  if(portFilter==="completed") list = list.filter(p => p.status==="Completed"||p.status==="Byarangiye");
-  if(!list.length){
-    box.innerHTML = `<div class="empty-state">${t("noActive")}<br><a onclick="go('plans')">${t("browse")}</a> ${t("browseToStart")}</div>`;
-    return;
-  }
-  box.innerHTML = list.map((p,i) => {
-    const end = p.start + (p.termDays||100)*24*60*60*1000;
-    const status = (p.status==="Completed"||p.status==="Byarangiye") ? t("completed") : t("active");
-    return `<div class="hist-card">
-      <div class="hist-top"><b>${p.name}</b><span class="status ok">${status}</span></div>
-      <div class="hist-row"><span>${t("amountEntered")}</span><b>${money(p.amount)}</b></div>
-      <div class="hist-row"><span>${t("dailyTarget")}</span><b style="color:var(--green)">${p.rate||"—"}%</b></div>
-      <div class="hist-row"><span>${t("created")}</span><span>${new Date(p.start).toLocaleString(undefined,{dateStyle:"medium",timeStyle:"short"})}</span></div>
-      <div class="hist-row"><span>${localizedEnds()}</span><span>${new Date(end).toLocaleString(undefined,{dateStyle:"medium",timeStyle:"short"})}</span></div>
-      <div class="countdown" id="cd-${i}" data-end="${end}">${t("calculating")}</div>
-    </div>`;
-  }).join("");
-  startCountdowns();
-}
-
-
-function startCountdowns(){
-  document.querySelectorAll(".countdown").forEach(el => {
-    clearInterval(el._timer);
-    const end = Number(el.dataset.end);
-    const tick = () => {
-      const d = Math.max(0, end - Date.now());
-      const days = Math.floor(d/86400000), h = Math.floor(d%86400000/3600000);
-      const m = Math.floor(d%3600000/60000), s = Math.floor(d%60000/1000);
-      el.textContent = d<=0 ? t("termEnded") : `${days}d ${h}h ${m}m ${s}s`;
-    };
-    tick(); el._timer = setInterval(tick, 1000);
-  });
-}
-
-function displayStatus(status){
-  const s = String(status||"").toLowerCase();
-  if(s.includes("bitegerejwe") || s.includes("pending")) return t("awaiting");
-  if(s.includes("byemewe") || s.includes("approved") || s.includes("successful") || s.includes("success") || s.includes("completed")) return t("successful");
-  if(s.includes("byanze") || s.includes("rejected")) return t("rejected");
-  return status || t("awaiting");
-}
-function displayType(type){
-  const s=String(type||"");
-  const map={Deposit:t("deposit"),Withdraw:t("withdraw"),"Plan Purchase":t("purchase"),"Daily Profit":t("profit"),"Plan Completed":t("completed")};
-  if(map[s]) return map[s];
-  if(s.startsWith("Referral")) return t("commission");
-  return s;
-}
-function renderHistory(){
-  const box = document.getElementById("historyList");
-  if(!box) return;
-  const list = user.history || [];
-  if(!list.length){ box.innerHTML = `<div class="empty-state">${t("recordsEmpty")}</div>`; return; }
-  box.innerHTML = list.slice(0,50).map(h => {
-    const s = displayStatus(h.status);
-    const raw=String(h.status||"").toLowerCase();
-    const cls = (raw.includes("byemewe")||raw.includes("approved")||raw.includes("successful")||raw.includes("completed")||raw.includes("byakunze")) ? "ok"
-              : (raw.includes("byanze")||raw.includes("rejected")) ? "bad" : "pending";
-    const isDep = String(h.type||"").toLowerCase().includes("deposit") || String(h.type||"")==="Kubitsa";
-    const isWd = String(h.type||"").toLowerCase().includes("withdraw") || String(h.type||"")==="Kubikuza";
-    let extra = "";
-    if(isDep || isWd){
-      const method = h.method || (h.detail||"").split(" · ")[0] || "—";
-      const network = h.network || (h.detail||"").split(" · ")[1] || "—";
-      const addr = h.address || h.receiving || "—";
-      const payer = h.payerPhone || "";
-      extra = `
-        <div class="rc-line"><span>${t("method")}</span><b>${method}</b></div>
-        <div class="rc-line"><span>${t("network")}</span><b>${network}</b></div>
-        ${payer ? `<div class="rc-line"><span>Paid from</span><b>${payer}</b></div>` : ""}
-        ${addr && addr!=="—" ? `<div class="rc-addr">${addr}</div>` : ""}
-      `;
-    }
-    return `<div class="record-card">
-      <div class="rc-top"><b>${displayType(h.type)}</b><span class="rc-badge ${cls}">${s}</span></div>
-      <div class="rc-line"><span>${t("amountEntered")}</span><b>${money(h.amount)}</b></div>
-      ${extra}
-      <div class="rc-line"><span>${h.detail && !isDep && !isWd ? h.detail : t("time")}</span><span>${new Date(h.date).toLocaleString(undefined,{dateStyle:"medium",timeStyle:"short"})}</span></div>
-    </div>`;
-  }).join("");
-}
-
-
-function sectionLabel(section){
-  const map={"MOBILE MONEY":currentLang==="rw"?"MOBILE MONEY":currentLang==="fr"?"ARGENT MOBILE":currentLang==="sw"?"PESA YA SIMU":currentLang==="ar"?"الأموال عبر الهاتف":currentLang==="zh"?"移动支付":currentLang==="de"?"MOBILE GELD":currentLang==="es"?"DINERO MÓVIL":currentLang==="pt"?"DINHEIRO MÓVEL":"MOBILE MONEY",
-    "BITCOIN NETWORK":"BITCOIN NETWORK","BITCOIN CASH":"BITCOIN CASH","CARDANO":"CARDANO","DASH":"DASH","DIGIBYTE":"DIGIBYTE","DOGECOIN":"DOGECOIN",
-    "ERC20 / ETHEREUM":"ERC20 / ETHEREUM","BEP20 / BNB CHAIN":"BEP20 / BNB CHAIN","POLYGON":"POLYGON","SOLANA NETWORK":"SOLANA NETWORK","TRON NETWORK":"TRON NETWORK","TON NETWORK":"TON NETWORK","LITECOIN":"LITECOIN","MONERO":"MONERO","XRP":"XRP","STELLAR":"STELLAR","ZCASH":"ZCASH"};
-  return map[section]||section;
-}
-function renderPayMethods(){
-  const box = document.getElementById("payMethodsList");
-  if(!box) return;
-  box.innerHTML = PAY_METHODS.map(sec => `
-    <div class="pay-section">
-      <div class="pay-section-title">${sectionLabel(sec.section)}</div>
-      ${sec.items.map(m => `
-        <div class="pay-option" onclick="selectPayMethod('${m.id}')">
-          <div class="pay-icon" style="background:${m.color};color:${m.textColor||'#fff'}">${m.icon}</div>
-          <div class="pay-info"><h4>${m.name}</h4><p>${m.network}</p></div>
-          <span class="pay-arrow">›</span>
-        </div>
-      `).join("")}
-    </div>
-  `).join("");
-}
-
-
-function findPayMethod(id){
-  for(const sec of PAY_METHODS){
-    const m = sec.items.find(x => x.id===id);
-    if(m) return m;
-  }
-  return null;
-}
-
-function selectPayMethod(id){
-  selectedPayMethod = findPayMethod(id);
-  if(!selectedPayMethod) return;
-  const cur = getUserCurrency();
-  const minD = getMinDeposit();
-  document.getElementById("amountModalTitle").textContent = "Deposit " + selectedPayMethod.name;
-  const lab = document.getElementById("depAmountLabel");
-  if(lab) lab.textContent = "Amount (" + cur + ")";
-  const dep = document.getElementById("depAmount");
-  if(dep){
-    dep.value = "";
-    dep.min = minD;
-    dep.placeholder = "Min " + money(minD);
-  }
-  const hint = document.getElementById("depAmountHint");
-  if(hint) hint.textContent = "Minimum " + money(minD) + " · enter amount in " + cur + " (no conversion).";
-  const isRwMomo = selectedPayMethod && selectedPayMethod.type === "momo" &&
-    (selectedPayMethod.id === "momo_rw" || selectedPayMethod.id === "airtel_rw" ||
-     /rwanda/i.test(selectedPayMethod.name||"") || /rwanda/i.test(selectedPayMethod.network||""));
-  const payerWrap = document.getElementById("depPayerWrap");
-  const payerIn = document.getElementById("depPayerPhone");
-  if(payerWrap){
-    if(isRwMomo){ payerWrap.classList.remove("hidden"); if(payerIn) payerIn.value = ""; }
-    else { payerWrap.classList.add("hidden"); if(payerIn) payerIn.value = ""; }
-  }
-  document.getElementById("amountModal").classList.remove("hidden");
-  setTimeout(() => document.getElementById("depAmount").focus(), 100);
-}
-
-function closeAmountModal(e){
-  if(!e || e.target===document.getElementById("amountModal") || e.target.classList.contains("btn-cancel")){
-    document.getElementById("amountModal").classList.add("hidden");
-  }
-}
-
-async function continueDeposit(){
-  const a = Number(document.getElementById("depAmount").value);
-  const minDep = getMinDeposit();
-  if(!a || a < minDep){ showFeedback(t("minimum")+" "+money(minDep), true); return }
-  if(!selectedPayMethod) return;
-  const isRwMomo = selectedPayMethod.type === "momo" &&
-    (selectedPayMethod.id === "momo_rw" || selectedPayMethod.id === "airtel_rw" ||
-     /rwanda/i.test(selectedPayMethod.name||"") || /rwanda/i.test(selectedPayMethod.network||""));
-  const payerPhone = (document.getElementById("depPayerPhone")?.value || "").trim();
-  if(isRwMomo && !payerPhone){
-    showFeedback(currentLang==="rw"?"Andika nomero wakoresheje wishyura":"Enter the phone number you paid with", true);
-    return;
-  }
-  const contBtn = document.querySelector("#amountModal .btn-continue");
-  if(contBtn){ contBtn.classList.add("btn-loading"); contBtn.disabled=true; }
-
-  const txId = "dep_" + Date.now() + "_" + Math.random().toString(36).slice(2,7);
-  const createdAt = Date.now();
-  currentDepositTx = {
-    id: txId,type:"Deposit",amount:a,method:selectedPayMethod.name,network:selectedPayMethod.network,
-    address:selectedPayMethod.address,holder:selectedPayMethod.holder,payType:selectedPayMethod.type,date:createdAt,status:"Bitegerejwe",
-    payerPhone: payerPhone || null
-  };
-
-  user.history = user.history || [];
-  user.history.unshift({
-    type:"Deposit",amount:a,detail:selectedPayMethod.name+" · "+selectedPayMethod.network+(payerPhone?" · from "+payerPhone:""),
-    date:createdAt,status:"Bitegerejwe",txId:txId,address:selectedPayMethod.address,network:selectedPayMethod.network,
-    method:selectedPayMethod.name,currency:getUserCurrency(),payerPhone: payerPhone || null
-  });
-
-  try{
-    await save();
-    document.getElementById("amountModal").classList.add("hidden");
-    const contBtn2 = document.querySelector("#amountModal .btn-continue");
-    if(contBtn2){ contBtn2.classList.remove("btn-loading"); contBtn2.disabled=false; }
-    go("depositDetail");
-  }catch(err){
-    const contBtn3 = document.querySelector("#amountModal .btn-continue");
-    if(contBtn3){ contBtn3.classList.remove("btn-loading"); contBtn3.disabled=false; }
-    showSyncError(err);
-    await syncUserFromFirestore();
-  }
-}
-
-
-function findHistoryTx(type, txId){
-  if(!user || !Array.isArray(user.history)) return null;
-  return user.history.find(h => h.type===type && (!txId || h.txId===txId)) || null;
-}
-function renderDepositDetail(){
-  const c = document.getElementById("depositDetailContent");
-  if(!c) return;
-  if(!currentDepositTx){
-    const pending = (user.history||[]).find(h => h.type==="Deposit" && (h.status==="Pending"||h.status==="Bitegerejwe"));
-    if(pending){
-      currentDepositTx = {
-        id:pending.txId,amount:pending.amount,method:pending.method || (pending.detail||"").split(" · ")[0],
-        network:pending.network||"",address:pending.address||"—",holder:pending.holder||"—",
-        date:pending.date,status:pending.status,payType:pending.payType||((pending.method||"").includes("MoMo")?"momo":"crypto"),
-        payerPhone: pending.payerPhone || null
-      };
-    } else {
-      c.innerHTML = `<div class="empty-state">${t("recordsEmpty")}<br><a onclick="go('deposit')">${t("newDeposit")}</a></div>`;
-      return;
-    }
-  }
-  const ttx = currentDepositTx;
-  const h = findHistoryTx("Deposit",ttx.id);
-  if(h) ttx.status=h.status;
-  const successful = ["approved","byemewe","successful","success"].some(x=>String(ttx.status).toLowerCase().includes(x));
-  const rejected = ["rejected","byanze"].some(x=>String(ttx.status).toLowerCase().includes(x));
-  const statusClass=successful?"ok":rejected?"bad":"pending";
-  // No USD↔local conversion line — account is already in RWF / UGX / USD
-  c.innerHTML = `
-    <div class="deposit-detail-card">
-      <div class="status ${statusClass}" style="display:inline-block;padding:6px 11px;border-radius:20px">${successful?t("successful"):rejected?t("rejected"):t("awaiting")}</div>
-      <div class="detail-line"><span>${t("amountEntered")}</span><b>${money(ttx.amount)}</b></div>
-      <div class="detail-line"><span>${t("method")}</span><b>${ttx.method||"—"}</b></div>
-      <div class="detail-line"><span>${t("network")}</span><b>${ttx.network||"—"}</b></div>
-      ${ttx.payerPhone || (h&&h.payerPhone) ? `<div class="detail-line"><span>Paid from</span><b>${ttx.payerPhone||h.payerPhone}</b></div>` : ""}
-      <div class="detail-line"><span>${t("time")}</span><b>${new Date(ttx.date).toLocaleString()}</b></div>
-      <p style="font-size:11px;color:var(--muted);margin-top:10px;line-height:1.45">${successful?t("paymentConfirmed"):rejected?t("stillWaiting"):t("depositSent")}</p>
-    </div>
-    <div class="address-box">
-      <div class="addr-label">${ttx.payType==="momo" ? "MoMo Number / Account" : "Deposit Address"}</div>
-      <div class="addr-value" id="depAddr">${ttx.address}</div>
-      ${ttx.holder?`<div style="font-size:11px;color:var(--muted);margin-top:6px">Name: ${ttx.holder}</div>`:""}
-      <div class="copy-row"><button class="primary" style="width:auto;padding:10px 20px;font-size:13px;margin:0" onclick="copyText('${ttx.address}')">${t("copy")}</button></div>
-    </div>
-    ${!successful && !rejected ? `<div class="how-box">
-      <h4>${t("howDeposit")}</h4>
-      <div class="how-step"><div class="num">1</div><div>${t("sendAmount")}</div></div>
-      <div class="how-step"><div class="num">2</div><div>${t("correctNetwork")}</div></div>
-      <div class="how-step"><div class="num">3</div><div>${t("confirmation")}</div></div>
-    </div>`:""}
-    ${!rejected ? `<button class="primary" onclick="checkPaymentStatus()">${t("checkStatus")}</button>`:""}
-    <button class="primary" style="margin-top:8px;background:var(--card2);color:var(--ink)" onclick="go('home')">${t("home")}</button>
-  `;
-}
-
-
-async function checkPaymentStatus(){
-  const btn = document.querySelector("#depositDetailContent .primary");
-  if(btn){ btn.classList.add("btn-loading"); btn.disabled = true; }
-  try{
-    await refreshFromFirestore();
-    if(currentDepositTx){
-      const h=findHistoryTx("Deposit",currentDepositTx.id);
-      if(h) currentDepositTx.status=h.status;
-    }
-    // Always take user to Records so they can see full status cards
-    go("records");
-  }finally{
-    if(btn){ btn.classList.remove("btn-loading"); btn.disabled = false; }
-  }
-}
-
-
-
-function renderWdMethods(){
-  const box = document.getElementById("wdMethodsList");
-  if(!box) return;
-  box.innerHTML = PAY_METHODS.map(sec => `
-    <div class="pay-section">
-      <div class="pay-section-title">${sectionLabel(sec.section)}</div>
-      ${sec.items.map(m => `
-        <div class="pay-option" id="wdopt-${m.id}" onclick="selectWdMethod('${m.id}')">
-          <div class="pay-icon" style="background:${m.color};color:${m.textColor||'#fff'}">${m.icon}</div>
-          <div class="pay-info"><h4>${m.name}</h4><p>${m.network}</p></div>
-          <span class="pay-arrow">›</span>
-        </div>
-      `).join("")}
-    </div>
-  `).join("");
-}
-
-function selectWdMethod(id){
-  selectedWdMethod = findPayMethod(id);
-  document.querySelectorAll("#wdMethodsList .pay-option").forEach(el => el.style.borderColor = "");
-  const el = document.getElementById("wdopt-"+id);
-  if(el) el.style.borderColor = "var(--blue)";
-  updateWdFx();
-}
-function updateWdFx(){
-  const hint = document.getElementById("wdFxHint");
-  if(!hint) return;
-  const a = Number(document.getElementById("wdAmount")?.value || 0);
-  // Local-currency accounts (RWF/UGX) — no USD conversion display
-  if(getUserCurrency() !== "USD"){ hint.classList.add("hidden"); return; }
-  if(!selectedWdMethod || !a || selectedWdMethod.type !== "momo"){ hint.classList.add("hidden"); return; }
-  let cur = "RWF";
-  if(selectedWdMethod.id === "momo_ug") cur = "UGX";
-  hint.classList.remove("hidden");
-  hint.innerHTML = `≈ You will receive about <b>${localAmount(a, cur)}</b> (approx. rate 1 USD = ${FX_RATES[cur]} ${cur})`;
-}
-
-async function submitWithdraw(){
-  const a = Number(document.getElementById("wdAmount").value);
-  const phone = document.getElementById("wdPhone").value.trim();
-  if(!selectedWdMethod){ alert(t("selectMethod")); return }
-  const method = selectedWdMethod.name + " · " + selectedWdMethod.network;
-  const minWd = getMinWithdraw();
-  const maxWd = getMaxWithdraw();
-  if(!a || a < minWd){ alert(t("minimum")+" "+money(minWd)); return }
-  if(a > maxWd){ alert(t("maximum")+" "+money(maxWd)); return }
-  if(a > Number(user.withdrawable||0)){ alert(t("insufficient")); return }
-  // Block withdrawing locked welcome bonus
-  const locked = Number(user.lockedBonus||0);
-  if(locked > 0 && !user.welcomeUnlocked){
-    const maxFree = Number(user.withdrawable||0);
-    if(a > maxFree){
-      showFeedback(currentLang==="rw"
-        ? "Ntabwo ushobora kubikuza ubu. Banza ugure BTG Core cyangwa hejuru."
-        : "You cannot withdraw this amount yet. Buy BTG Core or higher first.", true);
-      return;
-    }
-  }
-  if(!phone){ alert(t("noAddress")); return }
-
-  const fee = Math.round(a * WITHDRAW_FEE_RATE * 100) / 100;
-  const netAmount = Math.round((a - fee) * 100) / 100;
-  const txId="wd_"+Date.now()+"_"+Math.random().toString(36).slice(2,7);
-  const createdAt=Date.now();
-  user.withdrawable = Number(user.withdrawable) - a;
-  user.history = user.history || [];
-  user.history.unshift({
-    type:"Withdraw",amount:a,fee:fee,netAmount:netAmount,
-    detail:method+" → "+phone+" · fee 10% ("+money(fee)+")",
-    date:createdAt,status:"Bitegerejwe",
-    txId:txId,method:selectedWdMethod.name,network:selectedWdMethod.network,receiving:phone,
-    currency: getUserCurrency()
-  });
-  currentWithdrawTx={id:txId,type:"Withdraw",amount:a,fee:fee,netAmount:netAmount,method:selectedWdMethod.name,network:selectedWdMethod.network,receiving:phone,date:createdAt,status:"Bitegerejwe"};
-  try{
-    await save();
-    render();
-    go("withdrawDetail");
-  }catch(err){ showSyncError(err); await syncUserFromFirestore(); render(); }
-}
-
-
-function renderWithdrawDetail(){
-  const c=document.getElementById("withdrawDetailContent");
-  if(!c) return;
-  if(!currentWithdrawTx){
-    const h=(user.history||[]).find(x=>x.type==="Withdraw" && (x.status==="Pending"||x.status==="Bitegerejwe"));
-    if(h) currentWithdrawTx={id:h.txId,amount:h.amount,method:h.method||"—",network:h.network||"—",receiving:h.receiving||((h.detail||"").split(" → ")[1]||""),date:h.date,status:h.status};
-  }
-  if(!currentWithdrawTx){
-    c.innerHTML=`<div class="empty-state">${t("recordsEmpty")}<br><a onclick="go('withdraw')">${t("newWithdrawal")}</a></div>`;
-    return;
-  }
-  const h=findHistoryTx("Withdraw",currentWithdrawTx.id);
-  if(h){
-    currentWithdrawTx.status=h.status;
-    currentWithdrawTx.method=h.method||currentWithdrawTx.method;
-    currentWithdrawTx.network=h.network||currentWithdrawTx.network;
-    currentWithdrawTx.receiving=h.receiving||currentWithdrawTx.receiving;
-  }
-  const raw=String(currentWithdrawTx.status||"").toLowerCase();
-  const successful=raw.includes("approved")||raw.includes("byemewe")||raw.includes("successful")||raw.includes("success")||raw.includes("completed");
-  const rejected=raw.includes("rejected")||raw.includes("byanze");
-  const cls=successful?"ok":rejected?"bad":"pending";
-  c.innerHTML=`
-    <div class="deposit-detail-card">
-      <div class="status ${cls}" style="display:inline-block;padding:6px 11px;border-radius:20px">${successful?t("successful"):rejected?t("rejected"):t("awaiting")}</div>
-      <div class="detail-line"><span>${t("amountEntered")}</span><b>${money(currentWithdrawTx.amount)}</b></div>
-      ${currentWithdrawTx.fee ? `<div class="detail-line"><span>Fee (10%)</span><b>${money(currentWithdrawTx.fee)}</b></div>
-      <div class="detail-line"><span>You receive</span><b>${money(currentWithdrawTx.netAmount)}</b></div>` : ""}
-      <div class="detail-line"><span>${t("method")}</span><b>${currentWithdrawTx.method}</b></div>
-      <div class="detail-line"><span>${t("network")}</span><b>${currentWithdrawTx.network}</b></div>
-      <div class="detail-line"><span>${t("receiving")}</span><b>${currentWithdrawTx.receiving}</b></div>
-      <div class="detail-line"><span>${t("time")}</span><b>${new Date(currentWithdrawTx.date).toLocaleString()}</b></div>
-      <p style="font-size:11px;color:var(--muted);margin-top:10px;line-height:1.45">${rejected?t("stillWaiting"):successful?t("paymentConfirmed"):t("withdrawSent")}</p>
-    </div>
-    <div class="address-box">
-      <div class="addr-label">${t("receiving")}</div>
-      <div class="addr-value">${currentWithdrawTx.receiving}</div>
-      <div class="copy-row"><button class="primary" style="width:auto;padding:10px 20px;font-size:13px;margin:0" onclick="copyText('${String(currentWithdrawTx.receiving).replace(/'/g,"\\'")}')">${t("copy")}</button></div>
-    </div>
-    <button class="primary" style="background:var(--card2);color:var(--ink)" onclick="go('home')">${t("home")}</button>
-  `;
-}
-
-
-async function redeemGiftCode(){
-  const input = document.getElementById("giftCodeInput");
-  const msg = document.getElementById("giftCodeMsg");
-  if(!input || !user?.phone) return;
-  const code = String(input.value||"").trim().toUpperCase();
-  if(!code){ if(msg) msg.textContent = currentLang==="rw"?"Andika kode":"Enter a code"; return; }
-  // Gift code only for users who have invested in a plan
-  const hasInvested = Number(user.invested||0) > 0 ||
-    (Array.isArray(user.portfolio) && user.portfolio.some(p => Number(p.amount||0) > 0));
-  if(!hasInvested){
-    if(msg){
-      msg.style.color = "var(--red)";
-      msg.textContent = currentLang==="rw"
-        ? "Gift code ikoreshwa gusa n'uwashoye muri plan."
-        : "Gift code is only for users who have invested in a plan.";
-    }
-    return;
-  }
-  if(msg){ msg.style.color = "var(--muted)"; msg.textContent = currentLang==="rw"?"Birarebwa...":"Checking..."; }
-  try{
-    const api = window.firebaseAPI;
-    if(!api || !window.firebaseDB){ if(msg) msg.textContent = currentLang==="rw"?"Byanze. Ongera ugerageze.":"Failed. Try again."; return; }
-    const ref = api.doc(window.firebaseDB, "giftCodes", code);
-    const snap = await api.getDoc(ref);
-    if(!snap.exists()){ if(msg) msg.textContent = currentLang==="rw"?"Kode ntabwo ari yo.":"Invalid gift code"; return; }
-    const g = snap.data();
-    if(g.active === false){ if(msg) msg.textContent = currentLang==="rw"?"Iyi kode yahagaritswe.":"This code is disabled"; return; }
-    const gCur = String(g.currency||"USD").toUpperCase();
-    const uCur = getUserCurrency();
-    if(gCur !== uCur){
-      if(msg) msg.textContent = currentLang==="rw"
-        ? ("Iyi kode ni ya "+gCur+" gusa (konti yawe ni "+uCur+")")
-        : ("This code is for "+gCur+" accounts only (yours is "+uCur+")");
-      return;
-    }
-    const usedBy = Array.isArray(g.usedBy) ? g.usedBy : [];
-    if(usedBy.includes(user.phone)){ if(msg) msg.textContent = currentLang==="rw"?"Wamaze gukoresha iyi kode.":"You already used this code"; return; }
-    const maxUses = Number(g.maxUses||1);
-    const usedCount = Number(g.usedCount||0);
-    if(usedCount >= maxUses){ if(msg) msg.textContent = currentLang==="rw"?"Iyi kode yarangiye.":"Code fully redeemed"; return; }
-    const amount = Number(g.amount||0);
-    if(amount <= 0){ if(msg) msg.textContent = currentLang==="rw"?"Amafaranga si yo.":"Invalid amount"; return; }
-
-    // Credit user
-    user.balance = Number(user.balance||0) + amount;
-    user.withdrawable = Number(user.withdrawable||0) + amount;
-    user.history = user.history || [];
-    user.history.unshift({
-      type:"Gift Code", amount, currency: uCur,
-      detail:"Gift code "+code, date:Date.now(), status:"Byemewe"
-    });
-    await save();
-
-    // Update gift code doc
-    usedBy.push(user.phone);
-    await api.setDoc(ref, {
-      usedCount: usedCount + 1,
-      usedBy,
-      updatedAt: Date.now()
-    }, {merge:true});
-
-    input.value = "";
-    if(msg){ msg.style.color = "var(--green)"; msg.textContent = "Success! +"+money(amount)+" credited"; }
-    showFeedback("Gift code redeemed ✓");
-    render();
-  }catch(err){
-    console.error(err);
-    if(msg){ msg.style.color = "var(--red)"; msg.textContent = "Failed. Try again."; }
-  }
-}
-
-function showFeedback(msg, isError){
-  const el = document.getElementById("appToast");
-  if(!el){ if(isError) alert(msg); else alert(msg); return; }
-  el.className = "app-toast" + (isError ? " err" : "");
-  el.innerHTML = isError
-    ? '<span>'+msg+'</span>'
-    : '<span class="tick">✓</span><span>'+msg+'</span>';
-  el.classList.add("show");
-  clearTimeout(window.__appToastT);
-  window.__appToastT = setTimeout(()=> el.classList.remove("show"), 2800);
-}
-function copyText(value){
-  const v = String(value||"").trim();
-  if(!v) return;
-  const okMsg = (I18N[currentLang]?.copy||"Copied") + " ✓";
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(v).then(()=> showFeedback(okMsg)).catch(()=>{
-      try{
-        const ta=document.createElement("textarea"); ta.value=v; document.body.appendChild(ta); ta.select();
-        document.execCommand("copy"); document.body.removeChild(ta); showFeedback(okMsg);
-      }catch(e){ showFeedback(v); }
-    });
-  } else {
-    try{
-      const ta=document.createElement("textarea"); ta.value=v; document.body.appendChild(ta); ta.select();
-      document.execCommand("copy"); document.body.removeChild(ta); showFeedback(okMsg);
-    }catch(e){ showFeedback(v); }
-  }
-}
-function copyRef(){
-  const link = location.href.split("#")[0].split("?")[0] + "?ref=" + encodeURIComponent(user.refCode);
-  copyText(link);
-}
-function shareRef(){
-  const link = location.href.split("#")[0].split("?")[0] + "?ref=" + encodeURIComponent(user.refCode);
-  const txt = (currentLang==="rw"?"Injira muri BTG Pactual ukoresheje kode yanjye: ":currentLang==="fr"?"Rejoignez BTG Pactual avec mon code: ":currentLang==="sw"?"Jiunge na BTG Pactual kwa kutumia msimbo wangu: ":"Join BTG Pactual with my referral code: ") + user.refCode + "\n" + link;
-  if(navigator.share) navigator.share({title:"BTG Pactual", text:txt, url:link});
-  else copyText(txt);
-}
-
-(function(){
-  const params = new URLSearchParams(location.search);
-  const r = params.get("ref");
-  if(r){
-    const el = document.getElementById("regRef");
-    if(el){
-      el.value = r.trim().toUpperCase();
-      el.readOnly = true;
-      el.setAttribute("aria-readonly","true");
-    }
-    switchAuth("register");
-  }
-})();
-
-fillCountries();
-setLang(currentLang);
-
-(async function restoreSession(){
-  const referralLink = new URLSearchParams(location.search).has("ref");
-  if(referralLink){
-    document.getElementById("auth").classList.remove("hidden");
-    document.getElementById("app").classList.add("hidden");
-    switchAuth("register");
-    // Never auto-login when opening a referral link — user must register/login
-    return;
-  }
-  // Only restore session if user explicitly logged in this browser (flag set on successful login/register)
-  const sessionOk = sessionStorage.getItem("btg_logged_in") === "1";
-  if(!sessionOk){
-    // Stay on auth form — do not enter dashboard without credentials
-    document.getElementById("auth").classList.remove("hidden");
-    document.getElementById("app").classList.add("hidden");
-    return;
-  }
-  const saved = getCachedUser();
-  if(!saved || !saved.phone) {
-    sessionStorage.removeItem("btg_logged_in");
-    return;
-  }
-  try{
-    const fresh = await getUserFromFirestore(saved.phone);
-    if(fresh){ user = fresh; cacheUser(user); showApp(); }
-    else { localStorage.removeItem("btg_user"); sessionStorage.removeItem("btg_logged_in"); }
-  }catch(e){
-    // Network fail: still require they were logged in this tab
-    user = saved; showApp();
-  }
-})();
-</script>
-<div id="appToast" class="app-toast" role="status" aria-live="polite"></div>
-</body>
-</html>
+  if(page === "plans") renderPr
+Preview truncated for large file
